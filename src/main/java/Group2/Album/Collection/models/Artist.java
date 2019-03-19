@@ -15,7 +15,8 @@ public class Artist {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String artistName;
+	private String firstName;
+	private String lastName;
 	private String artistImage;
 	private String age;
 	private String hometown;
@@ -32,8 +33,9 @@ public class Artist {
 	
 	public Artist () {}
 
-	public Artist(String artistName, String artistImage, String age, String hometown, int rating, Album ...allAlbums) {
-		this.artistName = artistName;
+	public Artist(String firstName, String lastName, String artistImage, String age, String hometown, int rating, Album ...allAlbums) {
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.artistImage = artistImage;
 		this.age = age;
 		this.hometown = hometown;
@@ -44,8 +46,12 @@ public class Artist {
 		return id;
 	}
 
-	public String getArtistName() {
-		return artistName;
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
 	}
 
 	public String getArtistImage() {
@@ -78,7 +84,7 @@ public class Artist {
 
 	@Override
 	public String toString() {
-		return "Artist [id=" + id + ", artistName=" + artistName + ", artistImage=" + artistImage + ", age=" + age
+		return "Artist [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", artistImage=" + artistImage + ", age=" + age
 				+ ", hometown=" + hometown + ", allAlbums=" + allAlbums + "]";
 	}
 
