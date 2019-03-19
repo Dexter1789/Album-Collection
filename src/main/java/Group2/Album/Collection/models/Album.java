@@ -1,5 +1,6 @@
 package Group2.Album.Collection.models;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -41,6 +42,7 @@ public class Album {
 		this.albumImage = albumImage;
 		this.rating = rating;
 		this.allSongs = Arrays.asList(allSongs);
+		this.allComments = new ArrayList<>();
 	}
 
 	public Long getId() {
@@ -69,6 +71,11 @@ public class Album {
 	
 	public Collection<Comment> getAllComments() {
 		return allComments;
+	}
+	
+	// adding a comment to Album
+	public void addComment(Comment comment) {
+		allComments.add(comment);
 	}
 
 	@Override

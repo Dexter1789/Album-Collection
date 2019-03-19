@@ -45,7 +45,8 @@ public void run(String... args) throws Exception {
 	
 	
 	Album album1 = albumRepo.save(new Album("Album1", "www.google.com", 3 , song1, song2, song3));
-	Album album2 = albumRepo.save(new Album("Album2", "www.bing.com", 4 , songa, songb, songc));
+	Album album2 = albumRepo.save(new Album("Album2", "www.bing.com", 4 , songa, songb, songc));	
+	
 	
 	Artist artist1 = artistRepo.save(new Artist ("Bob", "Marley", "www.pinterst.com", "25", "Dallas", 4, album1));
 	Artist artist2 = artistRepo.save(new Artist ("Leontyne", "Price", "www.McDonalds.com", "25", "Cleveland", 4, album2));
@@ -54,6 +55,11 @@ public void run(String... args) throws Exception {
 	Comment comment2 = commentRepo.save(new Comment("user2", "This is a comment. This is a comment. This is a comment. "));
 	Comment comment3 = commentRepo.save(new Comment("user3", "This song sucks.This song sucks.This song sucks."));
 	Comment comment4 = commentRepo.save(new Comment("user4", "Awesome album! Awesome album! Awesome album! Awesome album!"));
+	
+	// adding comment to Album
+	album1.addComment(comment1);
+	commentRepo.save(comment1);
+	
 	
 	Tag tag1 = tagRepo.save(new Tag("Rock"));
 	Tag tag2 = tagRepo.save(new Tag("Jazz"));
