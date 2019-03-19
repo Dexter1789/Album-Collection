@@ -64,6 +64,16 @@ public class Song {
 	public Collection<Comment> getAllComments() {
 		return allComments;
 	}
+	
+	// adding a comment to Album
+	public void addComment(Comment comment) {
+			allComments.add(comment);
+	}
+	
+	// adding a tag to Song
+	public void addTag(Tag tag) {
+			allTags.add(tag);
+	}
 
 	@Override
 	public String toString() {

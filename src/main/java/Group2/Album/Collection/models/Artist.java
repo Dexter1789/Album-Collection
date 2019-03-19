@@ -81,6 +81,16 @@ public class Artist {
 	public Collection<Comment> getAllComments() {
 		return allComments;
 	}
+	
+	// adding a comment to Artist
+	public void addComment(Comment comment) {
+			allComments.add(comment);
+	}
+	
+	// adding a tag to Artist
+	public void addTag(Tag tag) {
+		allTags.add(tag);
+	}
 
 	@Override
 	public String toString() {

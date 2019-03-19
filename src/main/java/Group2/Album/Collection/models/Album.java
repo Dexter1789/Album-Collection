@@ -77,6 +77,11 @@ public class Album {
 	public void addComment(Comment comment) {
 		allComments.add(comment);
 	}
+	
+	// adding a tag to Album
+	public void addTag(Tag tag) {
+		allTags.add(tag);
+	}
 
 	@Override
 	public String toString() {
