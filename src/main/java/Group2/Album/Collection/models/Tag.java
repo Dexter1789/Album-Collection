@@ -2,11 +2,12 @@ package Group2.Album.Collection.models;
 
 import java.util.Collection;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-
+@Entity
 public class Tag {
 
 	@Id
