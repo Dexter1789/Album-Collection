@@ -1,5 +1,12 @@
 package Group2.Album.Collection.repositories;
 
-public class CommentRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import Group2.Album.Collection.models.Comment;
+
+@Repository
+public interface CommentRepository extends CrudRepository<Comment, Long>{
+	
 
 }
