@@ -2,12 +2,17 @@ const app = document.querySelector("#app");
 
 app.textContent = "Hello JS!";
 
-fetch('/books')
+fetch('/artists')
 	.then(response => response.json())
-	.then(jsonData => {
-		let content = `<ul>`
-		jsonData.forEach((book) => {
-			content += `<li>${book.title}: ${book.description}</li>`;
+	.then(artist => {
+		let content = `<ul class="artists">`
+		artist.forEach((artist) => {
+			content += `<li>${artist.firstName} ${artist.lastName}: 
+			${artist.artistImage}: 
+			${artist.age}: 
+			${artist.hometown}: 
+			${artist.rating}
+			</li>`;
 		})
 		content += `</ul>`;
 		app.innerHTML = content;
