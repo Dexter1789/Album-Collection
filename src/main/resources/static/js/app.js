@@ -7,6 +7,7 @@ fetch('/artists')
 	.then(artist => {
 		let content = `<ul class="artists">`
 		artist.forEach((artist) => {
+			// Make sure to change variable name in Java 
 			content += `<li>${artist.firstName} ${artist.lastName}: 
 			${artist.artistImage}: 
 			${artist.age}: 
