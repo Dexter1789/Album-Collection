@@ -23,18 +23,18 @@ ArtistRepository artistRepo;
 SongRepository songRepo;
 @Override
 public void run(String... args) throws Exception {
-	Song song1 = songRepo.save(new Song ("good song ", "www.yahoo.com", "3:25"));
-	Song song2 = songRepo.save(new Song ("terrible song", "www.twitter.com", "3:00"));
-	Song song3 = songRepo.save(new Song ("ok song", "www.geocities.com", "2:25"));
-	Song songa = songRepo.save(new Song ("good song a ", "www.instagram.com", "3:25"));
-	Song songb = songRepo.save(new Song ("terrible song b", "www.belk.com", "3:00"));
-	Song songc = songRepo.save(new Song ("ok song c", "www.tacobell.com", "2:25"));
+	Song song1 = songRepo.save(new Song ("good song ", "www.yahoo.com", "3:25", 3));
+	Song song2 = songRepo.save(new Song ("terrible song", "www.twitter.com", "3:00", 4));
+	Song song3 = songRepo.save(new Song ("ok song", "www.geocities.com", "2:25", 3));
+	Song songa = songRepo.save(new Song ("good song a ", "www.instagram.com", "3:25", 3));
+	Song songb = songRepo.save(new Song ("terrible song b", "www.belk.com", "3:00", 4));
+	Song songc = songRepo.save(new Song ("ok song c", "www.tacobell.com", "2:25", 2));
 	
 	
-	Album album1 = albumRepo.save(new Album("Album1", "www.google.com", "recordLable", song1, song2, song3));
-	Album album2 = albumRepo.save(new Album("Album2", "www.bing.com", "recordLable2", songa, songb, songc));
+	Album album1 = albumRepo.save(new Album("Album1", "www.google.com", 3 , song1, song2, song3));
+	Album album2 = albumRepo.save(new Album("Album2", "www.bing.com", 4 , songa, songb, songc));
 	
-	Artist artist1 = artistRepo.save(new Artist ("artist1", "www.pinterst.com", "25", "Dallas", album1));
-	Artist artist2 = artistRepo.save(new Artist ("artist2", "www.McDonalds.com", "25", "Cleveland", album2));
+	Artist artist1 = artistRepo.save(new Artist ("artist1", "www.pinterst.com", "25", "Dallas", 4, album1));
+	Artist artist2 = artistRepo.save(new Artist ("artist2", "www.McDonalds.com", "25", "Cleveland", 4, album2));
 }
 }

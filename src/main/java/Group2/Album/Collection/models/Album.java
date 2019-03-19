@@ -6,26 +6,40 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 
 @Entity
 public class Album {
+	
 	@Id
 	@GeneratedValue
 	private Long id;
 	private String albumTitle;
 	private String albumImage; 
-	private String recordLabel;
+	private int rating;
 	
+	@OneToMany(mappedBy="album")
 	private Collection <Song> allSongs;
+	
+	@ManyToOne
+	private Artist artist; 
+	
+	@ManyToMany
+	private Collection<Tag> allTags;
+	
+	@OneToMany(mappedBy="album")
+	private Collection<Comment> allComments;
 	
 	public Album() {}
 	
-	public Album(String albumTitle, String albumImage, String recordLabel, Song ...allSongs) {
+	public Album(String albumTitle, String albumImage, int rating , Song ...allSongs) {
 		this.albumTitle = albumTitle;
 		this.albumImage = albumImage;
-		this.recordLabel = recordLabel;
+		this.rating = rating;
 		this.allSongs = Arrays.asList(allSongs);
 	}
 
@@ -41,18 +55,26 @@ public class Album {
 		return albumImage;
 	}
 
-	public String getRecordLabel() {
-		return recordLabel;
+	public int getRating() {
+		return rating;
 	}
 
-	public Collection<Song> getSongs() {
+	public Collection<Song> getAllSongs() {
 		return allSongs;
+	}
+	
+	public Collection<Tag> getAllTags() {
+		return allTags;
+	}
+	
+	public Collection<Comment> getAllComments() {
+		return allComments;
 	}
 
 	@Override
 	public String toString() {
 		return "Album [id=" + id + ", albumTitle=" + albumTitle + ", albumImage=" + albumImage + ", recordLabel="
-				+ recordLabel + ", songs=" + allSongs + "]";
+				+ rating + ", songs=" + allSongs + "]";
 	}
 	
 	
