@@ -59,10 +59,21 @@ public void run(String... args) throws Exception {
 	
 	// adding comments
 	album1.addComment(comment1);
+	album1.addSong(song1);
+	album1.addSong(song2);
+	album1.addSong(song3);
+	album2.addSong(song4);
+	album2.addSong(song5);
+	album2.addSong(song6);
+	
 	albumRepo.save(album1);
+	albumRepo.save(album2);
 	
 	artist1.addComment(comment2);
+	artist1.addAlbum(album1);
+	artist2.addAlbum(album2);
 	artistRepo.save(artist1);
+	artistRepo.save(artist2);
 	
 	song1.addComment(comment3);
 	song1.addComment(comment4);

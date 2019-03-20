@@ -6,12 +6,12 @@ import java.util.Collection;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -36,6 +36,9 @@ public class Album {
 	@CollectionTable
 	private Collection<Comment> allComments;
 	
+	@OneToMany
+	private Collection<Song> allSongs;
+	
 	public Album() {}
 	
 	public Album(String albumTitle, String albumImage, int rating , Artist artist, Tag ...allTags) {
@@ -45,6 +48,7 @@ public class Album {
 		this.artist = artist;
 		this.allTags = Arrays.asList(allTags);
 		this.allComments = new ArrayList<Comment>();
+		this.allSongs = new ArrayList<Song>();
 	}
 
 	public Long getId() {
@@ -73,6 +77,15 @@ public class Album {
 
 	public Collection<Comment> getAllComments() {
 		return allComments;
+	}
+	
+
+	public Collection<Song> getAllSongs() {
+		return allSongs;
+	}
+	
+	public void addSong(Song song) {
+		allSongs.add(song);
 	}
 
 	// adding a comment to Album
