@@ -4,18 +4,34 @@ app.textContent = "Hello JS!";
 
 fetch('/artists')
 	.then(response => response.json())
-	.then(artist => {
+	.then(artists => {
 		let content = `<ul class="artists">`
-		artist.forEach((artist) => {
-			// Make sure to change variable name in Java 
-			content += `<li>${artist.firstName} ${artist.lastName}: 
-			${artist.artistImage}: 
-			${artist.age}: 
-			${artist.hometown}: 
-			${artist.rating}
-			</li>`;
+		artists.forEach((artist) => {
+			content += 
+			`<li class="artist">
+			<h3 class="artist__name">${artist.firstName} ${artist.lastName}</h3>
+			<ul class="artist__image">${artist.artistImage}:
+			<ul class="artist__age">${artist.age}: 
+			<ul class="artist__hometown">${artist.hometown}: 
+			<ul class="artist__rating">${artist.rating}
+			<ul class="artist__album">${artist.album}:
+			</li>
+			</ul>
+	
+			`;	
+			.join("")}
+
+			
 		})
-		content += `</ul>`;
+		
+		content += `
+		<li class ="album">`
+		let commentsContent = '<ul>';
+		artists[0].comments.forEach(comment => {
+			commentsContent += `<li>${comment.content}</li>`
+		})
+		commentsContent += '</ul>'
+		;
 		app.innerHTML = content;
 	})
 	.catch(err => console.log(err))
