@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Album {
@@ -22,13 +26,14 @@ public class Album {
 	private int rating;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Artist artist;
 
 	@ManyToMany
 	private Collection<Tag> allTags;
 	
-	// @OneToMany(mappedBy="album")
-	@Embedded
+	@ElementCollection
+	@CollectionTable
 	private Collection<Comment> allComments;
 	
 	public Album() {}
@@ -37,6 +42,7 @@ public class Album {
 		this.albumTitle = albumTitle;
 		this.albumImage = albumImage;
 		this.rating = rating;
+		this.artist = artist;
 		this.allTags = Arrays.asList(allTags);
 		this.allComments = new ArrayList<Comment>();
 	}

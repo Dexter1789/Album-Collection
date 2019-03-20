@@ -15,16 +15,6 @@ public class Tag {
 	private Long id;
 	private String tagName;
 
-	// see what team thinks
-	@ManyToMany
-	private Collection<Artist> allArtists;
-
-	@ManyToMany
-	private Collection<Album> allAlbums;
-
-	@ManyToMany
-	private Collection<Song> allSongs;
-
 	public Tag() {
 	}
 
@@ -40,18 +30,10 @@ public class Tag {
 		return tagName;
 	}
 
-	public Collection<Artist> getAllArtists() {
-		return allArtists;
+	@Override
+	public String toString() {
+		return "Tag [id=" + id + ", tagName=" + tagName + "]";
 	}
-
-	public Collection<Album> getAllAlbums() {
-		return allAlbums;
-	}
-
-	public Collection<Song> getAllSongs() {
-		return allSongs;
-	}
-
 
 
 }

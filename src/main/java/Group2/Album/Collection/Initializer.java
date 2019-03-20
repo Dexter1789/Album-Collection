@@ -52,10 +52,10 @@ public void run(String... args) throws Exception {
 	Song song6 = songRepo.save(new Song ("ok song c", "www.tacobell.com", "2:25", 2, album2));
 	
 	
-	Comment comment1 = new Comment("user1", "CommentCommentCommentCommentCommentCommentComment.");
-	Comment comment2 = new Comment("user2", "This is a comment. This is a comment. This is a comment. ");
-	Comment comment3 = new Comment("user3", "This song sucks.This song sucks.This song sucks.");
-	Comment comment4 = new Comment("user4", "Awesome album! Awesome album! Awesome album! Awesome album!");
+	Comment comment1 = new Comment("CommentCommentCommentCommentCommentCommentComment.");
+	Comment comment2 = new Comment("This is a comment. This is a comment. This is a comment. ");
+	Comment comment3 = new Comment("This song sucks.This song sucks.This song sucks.");
+	Comment comment4 = new Comment("Awesome album! Awesome album! Awesome album! Awesome album!");
 	
 	// adding comments
 	album1.addComment(comment1);
@@ -65,6 +65,7 @@ public void run(String... args) throws Exception {
 	artistRepo.save(artist1);
 	
 	song1.addComment(comment3);
+	song1.addComment(comment4);
 	songRepo.save(song1);
 	
 }}

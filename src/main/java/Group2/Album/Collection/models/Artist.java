@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,8 +28,8 @@ public class Artist {
 	@ManyToMany
 	private Collection<Tag> allTags;
 	
-	//@OneToMany(mappedBy = "artist")
-	@Embedded
+	@ElementCollection
+	@CollectionTable
 	private Collection<Comment> allComments;
 	
 	public Artist () {}
