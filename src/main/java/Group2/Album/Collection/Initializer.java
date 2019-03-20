@@ -51,20 +51,34 @@ public void run(String... args) throws Exception {
 	Artist artist1 = artistRepo.save(new Artist ("Bob", "Marley", "www.pinterst.com", "25", "Dallas", 4, album1));
 	Artist artist2 = artistRepo.save(new Artist ("Leontyne", "Price", "www.McDonalds.com", "25", "Cleveland", 4, album2));
 	
-	Comment comment1 = commentRepo.save(new Comment("user1", "CommentCommentCommentCommentCommentCommentComment."));
-	Comment comment2 = commentRepo.save(new Comment("user2", "This is a comment. This is a comment. This is a comment. "));
-	Comment comment3 = commentRepo.save(new Comment("user3", "This song sucks.This song sucks.This song sucks."));
-	Comment comment4 = commentRepo.save(new Comment("user4", "Awesome album! Awesome album! Awesome album! Awesome album!"));
+	Comment comment1 = new Comment("user1", "CommentCommentCommentCommentCommentCommentComment.");
+	Comment comment2 = new Comment("user2", "This is a comment. This is a comment. This is a comment. ");
+	Comment comment3 = new Comment("user3", "This song sucks.This song sucks.This song sucks.");
+	Comment comment4 = new Comment("user4", "Awesome album! Awesome album! Awesome album! Awesome album!");
 	
-	// adding comment to Album
+	// adding comments
 	album1.addComment(comment1);
-	commentRepo.save(comment1);
+	album2.addComment(comment2);
 	
+	artist1.addComment(comment2);
+	artist2.addComment(comment3);
+	
+	song1.addComment(comment3);
+	song2.addComment(comment4);
 	
 	Tag tag1 = tagRepo.save(new Tag("Rock"));
 	Tag tag2 = tagRepo.save(new Tag("Jazz"));
 	Tag tag3 = tagRepo.save(new Tag("Indie"));
 	Tag tag4 = tagRepo.save(new Tag("Adult Contemporary"));
 	
+	// adding comments
+	album1.addTag(tag1);
+	album2.addTag(tag2);
+	
+	artist1.addTag(tag2);
+	artist2.addTag(tag3);
+	
+	song1.addTag(tag3);
+	song2.addTag(tag4);
 }
 }

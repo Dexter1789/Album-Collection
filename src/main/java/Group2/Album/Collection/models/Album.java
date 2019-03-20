@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-
 
 @Entity
 public class Album {
@@ -23,26 +21,24 @@ public class Album {
 	private String albumImage; 
 	private int rating;
 	
-	@OneToMany(mappedBy="album")
-	private Collection <Song> allSongs;
-	
 	@ManyToOne
-	private Artist artist; 
-	
+	private Artist artist;
+
 	@ManyToMany
 	private Collection<Tag> allTags;
 	
-	@OneToMany(mappedBy="album")
+	// @OneToMany(mappedBy="album")
+	@Embedded
 	private Collection<Comment> allComments;
 	
 	public Album() {}
 	
-	public Album(String albumTitle, String albumImage, int rating , Song ...allSongs) {
+	public Album(String albumTitle, String albumImage, int rating , Artist artist, Tag ...allTags) {
 		this.albumTitle = albumTitle;
 		this.albumImage = albumImage;
 		this.rating = rating;
-		this.allSongs = Arrays.asList(allSongs);
-		this.allComments = new ArrayList<>();
+		this.allTags = Arrays.asList(allTags);
+		this.allComments = new ArrayList<Comment>();
 	}
 
 	public Long getId() {
@@ -61,18 +57,18 @@ public class Album {
 		return rating;
 	}
 
-	public Collection<Song> getAllSongs() {
-		return allSongs;
+	public Artist getArtist() {
+		return artist;
 	}
-	
+
 	public Collection<Tag> getAllTags() {
 		return allTags;
 	}
-	
+
 	public Collection<Comment> getAllComments() {
 		return allComments;
 	}
-	
+
 	// adding a comment to Album
 	public void addComment(Comment comment) {
 		allComments.add(comment);
@@ -85,10 +81,8 @@ public class Album {
 
 	@Override
 	public String toString() {
-		return "Album [id=" + id + ", albumTitle=" + albumTitle + ", albumImage=" + albumImage + ", recordLabel="
-				+ rating + ", songs=" + allSongs + "]";
+		return "Album [id=" + id + ", albumTitle=" + albumTitle + ", albumImage=" + albumImage + ", rating=" + rating
+				+ ", artist=" + artist + ", allTags=" + allTags + ", allComments=" + allComments + "]";
 	}
 	
-	
-
 }

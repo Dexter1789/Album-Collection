@@ -1,13 +1,18 @@
 package Group2.Album.Collection.models;
 
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
+
 
 @Entity
 public class Song {
@@ -18,25 +23,30 @@ public class Song {
 	private String songLink;
 	private String duration;
 	private int rating;
-
+	
 	@ManyToOne
 	private Album album;
 
 	@ManyToMany
 	private Collection<Tag> allTags;
 
-	@OneToMany(mappedBy = "song")
+	//@OneToMany(mappedBy = "song")
+	@Embedded
 	private Collection<Comment> allComments;
 
 	public Song() {}
 
-	public Song(String songTitle, String songLink, String duration, int rating) {
+	public Song(String songTitle, String songLink, String duration, int rating, Album album, Tag ...allTags) {
 		this.songTitle = songTitle;
 		this.songLink = songLink;
 		this.duration = duration;
 		this.rating = rating;
+		this.album = album;
+		this.allTags = Arrays.asList(allTags);
+		this.allComments = new ArrayList<Comment>();
+		
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -57,6 +67,10 @@ public class Song {
 		return rating;
 	}
 
+	public Album getAlbum() {
+		return album;
+	}
+
 	public Collection<Tag> getAllTags() {
 		return allTags;
 	}
@@ -64,7 +78,7 @@ public class Song {
 	public Collection<Comment> getAllComments() {
 		return allComments;
 	}
-	
+
 	// adding a comment to Album
 	public void addComment(Comment comment) {
 			allComments.add(comment);

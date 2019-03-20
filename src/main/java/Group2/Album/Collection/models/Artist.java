@@ -1,13 +1,14 @@
 package Group2.Album.Collection.models;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Artist {
@@ -22,24 +23,23 @@ public class Artist {
 	private String hometown;
 	private int rating;
 	
-	@OneToMany(mappedBy = "artist")
-	private Collection <Album> allAlbums;
-	
 	@ManyToMany
 	private Collection<Tag> allTags;
 	
-	@OneToMany(mappedBy = "artist")
+	//@OneToMany(mappedBy = "artist")
+	@Embedded
 	private Collection<Comment> allComments;
 	
 	public Artist () {}
 
-	public Artist(String firstName, String lastName, String artistImage, String age, String hometown, int rating, Album ...allAlbums) {
+	public Artist(String firstName, String lastName, String artistImage, String age, String hometown, int rating, Tag ...allTags) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.artistImage = artistImage;
 		this.age = age;
 		this.hometown = hometown;
-		this.allAlbums = Arrays.asList(allAlbums);
+		this.allTags = Arrays.asList(allTags);
+		this.allComments = new ArrayList<Comment>();
 	} 
 	
 	public Long getId() {
@@ -49,7 +49,7 @@ public class Artist {
 	public String getFirstName() {
 		return firstName;
 	}
-	
+
 	public String getLastName() {
 		return lastName;
 	}
@@ -65,15 +65,11 @@ public class Artist {
 	public String getHometown() {
 		return hometown;
 	}
-	
+
 	public int getRating() {
 		return rating;
 	}
 
-	public Collection<Album> getAllAlbums() {
-		return allAlbums;
-	}
-	
 	public Collection<Tag> getAllTags() {
 		return allTags;
 	}
@@ -81,7 +77,7 @@ public class Artist {
 	public Collection<Comment> getAllComments() {
 		return allComments;
 	}
-	
+
 	// adding a comment to Artist
 	public void addComment(Comment comment) {
 			allComments.add(comment);
@@ -94,8 +90,11 @@ public class Artist {
 
 	@Override
 	public String toString() {
-		return "Artist [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", artistImage=" + artistImage + ", age=" + age
-				+ ", hometown=" + hometown + ", allAlbums=" + allAlbums + "]";
+		return "Artist [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", artistImage="
+				+ artistImage + ", age=" + age + ", hometown=" + hometown + ", rating=" + rating + ", allTags="
+				+ allTags + ", allComments=" + allComments + "]";
 	}
+
+	
 
 }
