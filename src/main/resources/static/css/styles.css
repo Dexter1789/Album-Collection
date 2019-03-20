@@ -1,0 +1,126 @@
+/*  Contents  */
+/*  (1) Universal CSS */
+/*  (2) Grid Areas */
+/*  (3) Header CSS*/
+/*  (4) Body CSS */
+/*  (9) Footer CSS */
+
+
+/*  (1) Universal CSS START */
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  /*  (1) Universal CSS END */
+  
+  /*  (2) Grid Areas START */
+  
+  .header {
+    grid-area: header;
+  }
+  
+  .main__content {
+    grid-area: main__content;
+  }
+  
+  .main__content2 {
+    grid-area: main__content2;
+  }
+  
+  .main__content3 {
+    grid-area: main__content3;
+  }
+  
+  .footer{
+    grid-area: footer;
+  }
+  
+  /*  (2) Grid Areas END */
+  
+  
+  /*  (3) Header CSS START */
+  
+  header {
+    border-bottom: 1px solid black;
+    box-shadow: 1px 1px 1px black;
+    display: grid;
+    grid-template-columns: .05fr 1fr .05fr;
+    flex-direction: columns;
+    justify-content: space-around;
+    padding: 10px;
+  }
+  
+  header h1 {
+    grid-column-start: 2;
+    text-align: center;
+  }
+  
+  .menu__button {
+    background-color: transparent;
+    border: none;
+    grid-column-start: 3;
+  }
+  
+  .menu__button i {
+    font-size: 30px;
+  }
+  
+  /*  (3) Header CSS END */
+  
+  /*  (4) Body CSS START */
+  
+  .main__wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      " header "
+      " main__content "
+      " main__content2 "
+      " main__content3 "
+      " footer "
+  }
+  
+  @media only screen and (min-width: 700px) {
+  .main__wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: .3fr 1fr 1fr 1fr .3fr;
+    grid-template-areas:
+      " header header header header header "
+      " . main__content main__content2 main__content3 . "
+      " footer footer footer footer footer"
+  }
+  }
+  
+  .main__content,
+  .main__content2,
+  .main__content3 {
+    box-shadow: 1px 1px 1px black;
+    text-align: center;
+    padding: 0px;
+  
+  }
+  
+  .main__wrapper>div:nth-child(odd) {
+    background-color: red;
+  }
+  
+  .main__wrapper>div:nth-child(even) {
+    background-color: limegreen;
+  }
+  
+  .main__text {
+    background-color: lightgray;
+    padding: 5px;
+    bottom: 0;
+  }
+  
+  /*  (4) Body CSS END */
+  
+  footer {
+    text-align: center;
+  }
+  
