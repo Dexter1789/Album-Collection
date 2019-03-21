@@ -4,7 +4,7 @@ app.textContent = "Hello JS!";
 
 fetch('/artists')
 	.then(response => response.json())
-	.then(artist => {
+	.then(artists => {
 		let content = `<ul class="artists">`
 		artist.forEach(artist => { 
 			content += `
