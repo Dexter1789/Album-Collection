@@ -13,6 +13,11 @@
   font-family: 'Lato', sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 li {
   list-style: none;
 }
@@ -88,6 +93,7 @@ header h1 {
 
 .nav__menu {
   display: none;
+  padding-right: 90px;
 }
 
 .menu__button {
@@ -208,10 +214,21 @@ h1 {
   padding: 0px;
 }
 
-.main__content ul,
-.main__content2 ul,
-.main__content3 ul {
+.main__content ul li,
+.main__content2 ul li,
+.main__content3 ul li {
   padding: 10px;
+}
+
+.main__content h2,
+.main__content2 h2,
+.main__content3 h2 {
+  font-family: rye;
+  font-weight: normal;
+}
+
+.main__subtitle {
+  margin: 10px;
 }
 
 .content__img {
@@ -230,6 +247,9 @@ h1 {
 .main__text {
   background-color: rgba(0, 0, 15, 0.9);
   color: white;
+  font-family: lato;
+  font-weight: bold;
+  font-size: 120%;
   padding: 5px;
   height: 100%;
 }
