@@ -1,3 +1,5 @@
+import '../css/styles.css'
+
 const app = document.querySelector("#app");
 
 app.textContent = "Hello JS!";
