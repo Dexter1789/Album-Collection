@@ -1,7 +1,6 @@
 {
   "name": "album-collection",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "parcel build src/main/resources/static/html/index.html && rm src/main/resources/static/*.html && rm src/main/resources/static/*.js  && rm src/main/resources/static/*.js.map && rm src/main/resources/static/*.css  && rm src/main/resources/static/*.css.map && mv ./dist/* src/main/resources/static && rm -rf ./dist"
@@ -19,5 +18,6 @@
   "homepage": "https://github.com/Dexter1789/Album-Collection#readme",
   "dependencies": {
     "parcel-bundler": "^1.12.3"
-  }
+  },
+  "description": ""
 }
