@@ -1,38 +1,38 @@
-import '../css/styles.css'
+import Artists from './components/Artists';
+import api from './utils/api/api-actions';
+import events from './utils/events/event-actions';
 
-const app = document.querySelector("#app");
+// import '../css/styles.css'
 
-app.textContent = "Hello JS!";
+main ()
 
-fetch('/artists')
-    .then(response => response.json())
-    .then(artist => {
-        let content = `<ul class="artists">`
-        artist.forEach(artist => {
-            content += `
-            <li class="artist">
-                <h3 class="artist__name">${artist.firstName} ${artist.lastName}</h3>
-                <img src="${artist.artistImage}" alt="Arttist Image">
-                <h4>${artist.age}</h4>
-                <h4>${artist.hometown}</h4>
-                <h4>${artist.rating}</h4>
-                <ul class="albums">
-                    ${artist.allAlbums
-                        .map(album => {
-                            return `
-                            <li class="album">
-                                <h5 class="album__title">${album.albumTitle}<h5>
-                                <img src="${album.albumImage}" alt="Album Image"/>
-                                <h5 class="album__rating">${album.rating}</h5>
-                            </li>      
-                        `;
-                        })
-                    .join("")}
-                </ul>
-            </li>
-          `;
-        });
-        content += `</ul>`;
-        app.innerHTML = content;
-    })
-    .catch(err => console.log(err))
+function main () {
+    api.getRequest('/artists', artists => {
+        getAppContext().innerHTML = Artists(artists);
+})
+
+events.on(getAppContext(), 'click', () => {
+    if (event.target.classList.contains('add-artist__submit')) {
+        const firstName = document.querySelector('.add-artist__first-name').value 
+        const lastName = document.querySelector('.add-artist__last-name').value
+        const artistImage = document.querySelector('.add-artist__image').value
+        const age = document.querySelector('.add-artist__age').value
+        const hometown = document.querySelector('.add-artist__hometown').value
+        const rating = document.querySelector('add-artist__rating').value
+        api.postRequest('/artists/add', {
+            firstName: firstName,
+            lastName: lastName,
+            artistImage: artistImage,
+            age: age, 
+            hometown: hometown,
+            rating: rating,
+        }, (artists) => getAppContext().innerHTML = Artists(artists))
+    }
+})
+
+}
+function getAppContext() {
+    return document.querySelector("#app")
+}
+
+
