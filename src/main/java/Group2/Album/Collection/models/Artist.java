@@ -6,11 +6,11 @@ import java.util.Collection;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Artist {
@@ -32,6 +32,9 @@ public class Artist {
 	@CollectionTable
 	private Collection<Comment> allComments;
 	
+	@OneToMany
+	private Collection<Album> allAlbums;
+	
 	public Artist () {}
 
 	public Artist(String firstName, String lastName, String artistImage, String age, String hometown, int rating, Tag ...allTags) {
@@ -42,6 +45,7 @@ public class Artist {
 		this.hometown = hometown;
 		this.allTags = Arrays.asList(allTags);
 		this.allComments = new ArrayList<Comment>();
+		this.allAlbums = new ArrayList<Album>();
 	} 
 	
 	public Long getId() {
@@ -90,13 +94,20 @@ public class Artist {
 		allTags.add(tag);
 	}
 
+	public Collection<Album> getAllAlbums() {
+		return allAlbums;
+	}
+	
+	public void addAlbum(Album album) {
+		allAlbums.add(album);
+	}
+
 	@Override
 	public String toString() {
 		return "Artist [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", artistImage="
 				+ artistImage + ", age=" + age + ", hometown=" + hometown + ", rating=" + rating + ", allTags="
-				+ allTags + ", allComments=" + allComments + "]";
+				+ allTags + ", allComments=" + allComments + ", allAlbums=" + allAlbums + "]";
 	}
 
 	
-
 }
