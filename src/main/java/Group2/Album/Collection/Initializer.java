@@ -37,8 +37,8 @@ public void run(String... args) throws Exception {
 	Tag tag3 = tagRepo.save(new Tag("Indie"));
 	Tag tag4 = tagRepo.save(new Tag("Adult Contemporary"));
 	
-	Artist artist1 = artistRepo.save(new Artist ("Bob", "Marley", "www.pinterst.com", "25", "Dallas", 4, tag1));
-	Artist artist2 = artistRepo.save(new Artist ("Leontyne", "Price", "www.McDonalds.com", "25", "Cleveland", 4, tag2));
+	Artist artist1 = artistRepo.save(new Artist ("Bob", "Marley", "www.pinterst.com", "25", "Dallas", "4", tag1));
+	Artist artist2 = artistRepo.save(new Artist ("Leontyne", "Price", "www.McDonalds.com", "25", "Cleveland", "4", tag2));
 	
 	Album album1 = albumRepo.save(new Album("Album1", "www.google.com", 3, artist1, tag1));
 	Album album2 = albumRepo.save(new Album("Album2", "www.bing.com", 4, artist2, tag2, tag3));	

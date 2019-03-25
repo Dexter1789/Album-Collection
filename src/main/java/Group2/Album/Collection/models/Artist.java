@@ -23,7 +23,7 @@ public class Artist {
 	private String artistImage;
 	private String age;
 	private String hometown;
-	private int rating;
+	private String rating;
 	
 	@ManyToMany
 	private Collection<Tag> allTags;
@@ -37,12 +37,13 @@ public class Artist {
 	
 	public Artist () {}
 
-	public Artist(String firstName, String lastName, String artistImage, String age, String hometown, int rating, Tag ...allTags) {
+	public Artist(String firstName, String lastName, String artistImage, String age, String hometown, String rating, Tag ...allTags) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.artistImage = artistImage;
 		this.age = age;
 		this.hometown = hometown;
+		this.rating = rating;
 		this.allTags = Arrays.asList(allTags);
 		this.allComments = new ArrayList<Comment>();
 		this.allAlbums = new ArrayList<Album>();
@@ -72,7 +73,7 @@ public class Artist {
 		return hometown;
 	}
 
-	public int getRating() {
+	public String getRating() {
 		return rating;
 	}
 

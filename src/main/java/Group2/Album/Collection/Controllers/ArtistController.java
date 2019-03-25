@@ -35,10 +35,8 @@ public class ArtistController {
 		String artistImage = json.getString("artistImage");
 		String age = json.getString("age");
 		String hometown = json.getString("hometown");
-		int rating = Integer.parseInt(json.getString("rating"));
-		
+		String rating = json.getString("rating");
 		artistRepo.save(new Artist(firstName, lastName, artistImage, age, hometown, rating));
-		
 		return (Collection<Artist>) artistRepo.findAll();
 	}
 }
