@@ -21,14 +21,14 @@ events.on(getAppContext(), 'click', () => {
         const age = document.querySelector('.add-artist__age').value
         const hometown = document.querySelector('.add-artist__hometown').value
         const rating = document.querySelector('.add-artist__rating').value
-        // console.log()
+       
         api.postRequest('/artists/add', {
             firstName: firstName,
             lastName: lastName,
             artistImage: artistImage,
             age: age, 
             hometown: hometown,
-            rating: rating,
+            rating: rating
         }, (artists) => getAppContext().innerHTML = Artists(artists))
         
     }

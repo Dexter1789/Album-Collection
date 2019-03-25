@@ -14,7 +14,7 @@ function postRequest(location, requestBody, callback) {
         body: JSON.stringify(requestBody)
     })
         .then(response => response.json())
-        .then(data => callback.json())
+        .then(data => callback(data))
         .catch(err = console.log(err));
 
 }
