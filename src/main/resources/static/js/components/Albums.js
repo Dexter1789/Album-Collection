@@ -1,4 +1,5 @@
 export default function Albums(albums) {
+    console.log(albums);
     return albums
         .map(album => {
             return `

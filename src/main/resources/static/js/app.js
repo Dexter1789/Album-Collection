@@ -29,7 +29,9 @@ events.on(getAppContext(), 'click', () => {
             hometown: hometown,
             rating: rating,
         }, (artists) => getAppContext().innerHTML = Artists(artists))
+        
     }
+    
 })
 
 }
