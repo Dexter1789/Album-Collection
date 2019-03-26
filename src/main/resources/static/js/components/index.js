@@ -1,4 +1,5 @@
 import AllAlbums from './AllAlbums';
+import AllSongs from './AllSongs';
 
 export default function All(artists) {
     return `
@@ -57,12 +58,18 @@ export default function All(artists) {
             <h3 class="main__subtitle">Elephant Gun</h3><h4>by Beirut</h4><article>Lorem ipsum dolor amet before they sold out sustainable waistcoat, mlkshk migas man bun keffiyeh godard portland kickstarter tumeric tumblr. </article>
                       <ul>
             <li>Top 5</li>
-            <li>Populate this list with JS</li>
-            <li>Song 1</li>
-            <li>Song 2</li>
-            <li>Song 3</li>
-            <li>Song 4</li>
-            <li>Song 5</li>
+            ${artists.map(artist => {
+              return `
+                  <li>${AllSongs(artist.allAlbums[0].allSongs)}</li>
+                  
+                  
+                  `;
+                  
+                }).join('')}
+
+
+
+
           </ul>
           </div>
       </div>
@@ -72,3 +79,4 @@ export default function All(artists) {
 `;
 
 }
+
