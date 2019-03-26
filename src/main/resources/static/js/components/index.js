@@ -1,4 +1,3 @@
-
 import AllAlbums from './AllAlbums';
 
 export default function All(artists) {
@@ -40,12 +39,15 @@ export default function All(artists) {
         <h3 class="main__subtitle">Animal Collective</h3><article>Lorem ipsum dolor amet vexillologist lyft pok pok, health goth williamsburg typewriter tofu sartorial tumblr 90's retro truffaut disrupt PBR&B plaid. </article>
           <ul>
             <li>Top 5</li>
-            <li>Populate this list with JS</li>
-            <li>Artist 1</li>
-            <li>Artist 2</li>
-            <li>Artist 3</li>
-            <li>Artist 4</li>
-            <li>Artist 5</li>
+            ${artists.map(artist => {
+              return `
+      
+                  <li>${artist.firstName} ${artist.lastName}</li>
+                  
+                  
+                  `;
+                  
+                }).join('')}
           </ul>
         </div>
       </div>
