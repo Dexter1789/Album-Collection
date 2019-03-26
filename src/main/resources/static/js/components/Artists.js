@@ -1,11 +1,24 @@
 import Albums from './Albums'
 
 export default function Artists(artists) {
-    
+
     return `
+    <header>
+        <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
+        <nav class="nav__menu">
+            <ul>
+                <p><li class="nav__menu__albums">Albums</li></p>
+                <p><li class="nav__menu__artists">Artists</li></p>
+                <p><li class="nav__menu__songs">Songs</li></p>
+            </ul>
+        </nav>
+        <button class="menu__button"><i class="fa fa-bars"></i></button>
+    </header>
+
+
         <ul class="artist">
         ${artists.map(artist => {
-            console.log(artist.allAlbums);
+        console.log(artist.allAlbums);
         return `
             <h3 class="artist__name">${artist.firstName} ${artist.lastName}</h3>
             <img class="artist__image" src="${artist.artistImage}"/>
@@ -34,4 +47,3 @@ export default function Artists(artists) {
     `;
 
 }
-
