@@ -3,34 +3,34 @@ import AllAlbums from './AllAlbums';
 
 export default function All(artists) {
     return `
+      <header>
+          <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
+          <nav class="nav__menu">
+              <ul>
+                  <p><li class="nav__menu__albums">Albums</li></p>
+                  <p><li class="nav__menu__artists">Artists</li></p>
+                  <p><li class="nav__menu__songs">Songs</li></p>
+              </ul>
+          </nav>
+          <button class="menu__button"><i class="fa fa-bars"></i></button>
+      </header>
+      <main class="main__wrapper">
+              <div class="logo__banner"><img class="logo2" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png" alt="Logo"></div>
+        <div class="main__content"><div class="content__img"><img src="https://www.popsike.com/pix/20170905/263189068682.jpg"></div>
+          <div class="main__text"><h2>Albums</h2>
+            <h3 class="main__subtitle">For Emma, Forever Ago</h3><h4>by Bon Iver</h4><article>Lorem ipsum dolor amet aesthetic cold-pressed DIY craft beer, plaid biodiesel vaporware iPhone air plant meh edison bulb hoodie scenester leggings.</article>
+            <ul>
+              <li>Top 5</li>
     ${artists.map(artist => {
         return `
-    <header>
-        <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
-        <nav class="nav__menu">
-            <ul>
-                <p><li class="nav__menu__albums">Albums</li></p>
-                <p><li class="nav__menu__artists">Artists</li></p>
-                <p><li class="nav__menu__songs">Songs</li></p>
-            </ul>
-        </nav>
-        <button class="menu__button"><i class="fa fa-bars"></i></button>
-    </header>
 
-    <main class="main__wrapper">
-            <div class="logo__banner"><img class="logo2" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png" alt="Logo"></div>
-      <div class="main__content"><div class="content__img"><img src="https://www.popsike.com/pix/20170905/263189068682.jpg"></div>
-        <div class="main__text"><h2>Albums</h2>
-          <h3 class="main__subtitle">For Emma, Forever Ago</h3><h4>by Bon Iver</h4><article>Lorem ipsum dolor amet aesthetic cold-pressed DIY craft beer, plaid biodiesel vaporware iPhone air plant meh edison bulb hoodie scenester leggings.</article>
-          <ul>
-            <li>Top 5</li>
-            <li>${AllAlbums(artist.albums)}</li>
-            </ul>
-         
-        
-          `;
-
-    }).join('')}
+            <li>${AllAlbums(artist.allAlbums)}</li>
+            
+            
+            `;
+            
+          }).join('')}
+          </ul>
     
           </div>
           </div>
