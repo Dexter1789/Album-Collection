@@ -23,7 +23,6 @@ public class Song {
 	@GeneratedValue
 	private Long id;
 	private String songTitle;
-	private String songLink;
 	private String duration;
 	private int rating;
 	
@@ -40,9 +39,8 @@ public class Song {
 
 	public Song() {}
 
-	public Song(String songTitle, String songLink, String duration, int rating, Album album, Tag ...allTags) {
+	public Song(String songTitle, String duration, int rating, Album album, Tag ...allTags) {
 		this.songTitle = songTitle;
-		this.songLink = songLink;
 		this.duration = duration;
 		this.rating = rating;
 		this.album = album;
@@ -59,9 +57,6 @@ public class Song {
 		return songTitle;
 	}
 
-	public String getSongLink() {
-		return songLink;
-	}
 
 	public String getDuration() {
 		return duration;
@@ -95,7 +90,7 @@ public class Song {
 
 	@Override
 	public String toString() {
-		return "Song [id=" + id + ", songTitle=" + songTitle + ", songLink=" + songLink + ", duration=" + duration
+		return "Song [id=" + id + ", songTitle=" + songTitle + ", duration=" + duration
 				+ ", rating=" + rating + ", album=" + album + ", allTags=" + allTags + ", allComments=" + allComments
 				+ "]";
 	}

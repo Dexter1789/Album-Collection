@@ -44,12 +44,12 @@ public void run(String... args) throws Exception {
 	Album album2 = albumRepo.save(new Album("Album2", "www.bing.com", 4, artist2, tag2, tag3));	
 	
 	
-	Song song1 = songRepo.save(new Song ("good song ", "www.yahoo.com", "3:25", 3, album1, tag1));
-	Song song2 = songRepo.save(new Song ("terrible song", "www.twitter.com", "3:00", 4, album1, tag1));
-	Song song3 = songRepo.save(new Song ("ok song", "www.geocities.com", "2:25", 3, album1, tag2, tag3));
-	Song song4 = songRepo.save(new Song ("good song a", "www.instagram.com", "3:25", 3, album2));
-	Song song5 = songRepo.save(new Song ("terrible song b", "www.belk.com", "3:00", 4, album2, tag4, tag1));
-	Song song6 = songRepo.save(new Song ("ok song c", "www.tacobell.com", "2:25", 2, album2));
+	Song song1 = songRepo.save(new Song ("good song ","3:25", 3, album1, tag1));
+	Song song2 = songRepo.save(new Song ("terrible song", "3:00", 4, album1, tag1));
+	Song song3 = songRepo.save(new Song ("ok song", "2:25", 3, album1, tag2, tag3));
+	Song song4 = songRepo.save(new Song ("good song a", "3:25", 3, album2));
+	Song song5 = songRepo.save(new Song ("terrible song b",  "3:00", 4, album2, tag4, tag1));
+	Song song6 = songRepo.save(new Song ("ok song c", "2:25", 2, album2));
 	
 	
 	Comment comment1 = new Comment("CommentCommentCommentCommentCommentCommentComment.");
