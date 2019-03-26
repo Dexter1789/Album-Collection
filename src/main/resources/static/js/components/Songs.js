@@ -1,7 +1,7 @@
-export default function Albums(albums) {
-    console.log(albums);
-    return albums
-        .map(album => {
+export default function Songs(songs) {
+    console.log(songs);
+    return songs
+        .map(song => {
             return `
 
             <header>
@@ -17,14 +17,13 @@ export default function Albums(albums) {
         </header>
 
 
-            <li class="album">
-            <h5 class="album__title">${album.albumTitle}</h5>
-            <img class="album__image" src="${album.albumImage}"/>
-            <p class="album__rating">${album.rating}</p>
+            <li class="song">
+            <h5 class="song__title">${song.songTitle}</h5>
+            <p class="song__duration">${song.duration}</p>
+            <p class="song__rating">${song.rating}</p>
             </li>
             `;
         }).join('')
-        
 
 
 }
