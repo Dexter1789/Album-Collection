@@ -105,8 +105,9 @@ public class Artist {
 	public String toString() {
 		return "Artist [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", artistImage="
 				+ artistImage + ", age=" + age + ", hometown=" + hometown + ", rating=" + rating + ", allTags="
-				+ allTags + ", allAlbums=" + allAlbums + "]";
+				+ allTags + ", artistComments=" + artistComments + ", allAlbums=" + allAlbums + "]";
 	}
 
+	
 	
 }
