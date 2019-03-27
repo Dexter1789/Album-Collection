@@ -22,9 +22,9 @@ export default function Artists(artists) {
         return `
             <h3 class="artist__name">${artist.firstName} ${artist.lastName}</h3>
             <img class="artist__image" src="${artist.artistImage}"/>
-            <p class="artist__age">${artist.age}</p>
-            <p class="artist__hometown">${artist.hometown}</p>
-            <p class="artist__rating">${artist.rating}</p>
+            <p class="artist__age">Age: ${artist.age}</p>
+            <p class="artist__hometown">Hometown: ${artist.hometown}</p>
+            <p class="artist__rating">Average Rating: ${artist.rating}</p>
 
                 <ul class="albums">
                ${Albums(artist.allAlbums)}
@@ -44,6 +44,6 @@ export default function Artists(artists) {
     <input type="text" class="add-artist__rating" placeholder="Artist Rating">
     <button class="add-artist__submit">Add Artist</button>
     </section>
+    <footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
     `;
-
 }
