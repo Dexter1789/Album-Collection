@@ -1,24 +1,22 @@
 package Group2.Album.Collection.models;
 
-import javax.persistence.Embeddable;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.Lob;
 
-@Embeddable
-public class Comment {
+@Entity
+public abstract class Comment {
 	
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Lob
 	private String content;
 
 	
-	@ManyToMany
-	private Artist artist;
-	private Song song;
-	private Album album;
-	
+	public Comment() {}
 	
 	public Comment(String content) {
 		this.content = content;
@@ -31,24 +29,15 @@ public class Comment {
 	public String getContent() {
 		return content;
 	}
-	
-	public Artist getArtist() {
-		return artist;
-	}
-	
-	public Song getSong() {
-		return song;
-	}
-	
-	public Album getAlbum() {
-		return album;
-	}
-	
+
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", content=" + content + ", artist=" + artist + ", song=" + song + ", album="
-				+ album + "]";
+		return "Comment [id=" + id + ", content=" + content + "]";
 	}
+	
+
+	
+
 
 
 }
