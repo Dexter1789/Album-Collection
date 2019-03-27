@@ -5,13 +5,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -33,9 +32,8 @@ public class Song {
 	@ManyToMany
 	private Collection<Tag> allTags;
 
-	@ElementCollection
-	@CollectionTable
-	private Collection<Comment> allComments;
+	@OneToMany(mappedBy="song")
+	private Collection<SongComment> songComments;
 
 	public Song() {}
 
@@ -45,8 +43,6 @@ public class Song {
 		this.rating = rating;
 		this.album = album;
 		this.allTags = Arrays.asList(allTags);
-		this.allComments = new ArrayList<Comment>();
-		
 	}
 	
 	public Long getId() {
@@ -74,15 +70,15 @@ public class Song {
 		return allTags;
 	}
 
-	public Collection<Comment> getAllComments() {
-		return allComments;
+	public Collection<SongComment> getsongComments() {
+		return songComments;
 	}
 
-	// adding a comment to Album
-	public void addComment(Comment comment) {
-			allComments.add(comment);
-	}
-	
+//	// adding a comment to Album
+//	public void addComment(Comment comment) {
+//			allComments.add(comment);
+//	}
+//	
 	// adding a tag to Song
 	public void addTag(Tag tag) {
 			allTags.add(tag);
@@ -91,8 +87,7 @@ public class Song {
 	@Override
 	public String toString() {
 		return "Song [id=" + id + ", songTitle=" + songTitle + ", duration=" + duration
-				+ ", rating=" + rating + ", album=" + album + ", allTags=" + allTags + ", allComments=" + allComments
-				+ "]";
+				+ ", rating=" + rating + ", album=" + album + ", allTags=" + allTags + "]";
 	}
 
 }

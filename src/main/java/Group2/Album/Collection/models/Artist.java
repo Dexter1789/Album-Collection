@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -20,6 +19,7 @@ public class Artist {
 	private Long id;
 	private String firstName;
 	private String lastName;
+	@Lob
 	private String artistImage;
 	private String age;
 	private String hometown;
@@ -28,9 +28,8 @@ public class Artist {
 	@ManyToMany
 	private Collection<Tag> allTags;
 	
-	@ElementCollection
-	@CollectionTable
-	private Collection<Comment> allComments;
+	@OneToMany(mappedBy="artist")
+	private Collection<ArtistComment> artistComments;
 	
 	@OneToMany
 	private Collection<Album> allAlbums;
@@ -45,7 +44,6 @@ public class Artist {
 		this.hometown = hometown;
 		this.rating = rating;
 		this.allTags = Arrays.asList(allTags);
-		this.allComments = new ArrayList<Comment>();
 		this.allAlbums = new ArrayList<Album>();
 	} 
 	
@@ -81,14 +79,14 @@ public class Artist {
 		return allTags;
 	}
 
-	public Collection<Comment> getAllComments() {
-		return allComments;
+	public Collection<ArtistComment> getArtistComments() {
+		return artistComments;
 	}
 
-	// adding a comment to Artist
-	public void addComment(Comment comment) {
-			allComments.add(comment);
-	}
+//	// adding a comment to Artist
+//	public void addComment(Comment comment) {
+//			allComments.add(comment);
+//	}
 	
 	// adding a tag to Artist
 	public void addTag(Tag tag) {
@@ -107,7 +105,7 @@ public class Artist {
 	public String toString() {
 		return "Artist [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", artistImage="
 				+ artistImage + ", age=" + age + ", hometown=" + hometown + ", rating=" + rating + ", allTags="
-				+ allTags + ", allComments=" + allComments + ", allAlbums=" + allAlbums + "]";
+				+ allTags + ", allAlbums=" + allAlbums + "]";
 	}
 
 	
