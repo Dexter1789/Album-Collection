@@ -29,6 +29,13 @@ ${albums.map(album => {
             
            
         </main>
+        <section class="add-artist">
+        <input type="text" class="add-album__title" placeholder="Album Title">
+        <input type="text" class="add-album__image" placeholder="Album Image">
+        <input type="text" class="add-album__rating" placeholder="Album Rating">
+        <input type="text" class="add-album__artist" placeholder="Album Artist">
+        <button class="add-album__submit">Add Album</button>
+        </section>
         <footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
 
 `}

@@ -29,6 +29,13 @@ export default function Songs(songs) {
     
     <a href="0"><h3 class="main__subtitle">Add Song</h3></a>
 </main>
+<section class="add-artist">
+<input type="text" class="add-song__title" placeholder="Song Title">
+<input type="text" class="add-song__duration" placeholder="Song Duration">
+<input type="text" class="add-song__rating" placeholder="Song Rating">
+<input type="text" class="add-song__album" placeholder="Song Album">
+<button class="add-song__submit">Add Song</button>
+</section>
 <footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
 
 `}
