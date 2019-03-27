@@ -1,19 +1,19 @@
-
 import AllAlbums from './AllAlbums';
+import AllSongs from './AllSongs';
 
 export default function All(artists) {
     return `
-      <header>
-          <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
-          <nav class="nav__menu">
-              <ul>
-                  <p><li class="nav__menu__albums">Albums</li></p>
-                  <p><li class="nav__menu__artists">Artists</li></p>
-                  <p><li class="nav__menu__songs">Songs</li></p>
-              </ul>
-          </nav>
-          <button class="menu__button"><i class="fa fa-bars"></i></button>
-      </header>
+    <header>
+    <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
+    <nav class="nav__menu">
+        <ul>
+            <p><li class="nav__menu__albums">Albums</li></p>
+            <p><li class="nav__menu__artists">Artists</li></p>
+            <p><li class="nav__menu__songs">Songs</li></p>
+        </ul>
+    </nav>
+    <button class="menu__button"><i class="fa fa-bars"></i></button>
+  </header>
       <main class="main__wrapper">
               <div class="logo__banner"><img class="logo2" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png" alt="Logo"></div>
         <div class="main__content"><div class="content__img"><img src="https://www.popsike.com/pix/20170905/263189068682.jpg"></div>
@@ -40,12 +40,15 @@ export default function All(artists) {
         <h3 class="main__subtitle">Animal Collective</h3><article>Lorem ipsum dolor amet vexillologist lyft pok pok, health goth williamsburg typewriter tofu sartorial tumblr 90's retro truffaut disrupt PBR&B plaid. </article>
           <ul>
             <li>Top 5</li>
-            <li>Populate this list with JS</li>
-            <li>Artist 1</li>
-            <li>Artist 2</li>
-            <li>Artist 3</li>
-            <li>Artist 4</li>
-            <li>Artist 5</li>
+            ${artists.map(artist => {
+              return `
+      
+                  <li>${artist.firstName} ${artist.lastName}</li>
+                  
+                  
+                  `;
+                  
+                }).join('')}
           </ul>
         </div>
       </div>
@@ -55,18 +58,25 @@ export default function All(artists) {
             <h3 class="main__subtitle">Elephant Gun</h3><h4>by Beirut</h4><article>Lorem ipsum dolor amet before they sold out sustainable waistcoat, mlkshk migas man bun keffiyeh godard portland kickstarter tumeric tumblr. </article>
                       <ul>
             <li>Top 5</li>
-            <li>Populate this list with JS</li>
-            <li>Song 1</li>
-            <li>Song 2</li>
-            <li>Song 3</li>
-            <li>Song 4</li>
-            <li>Song 5</li>
+            ${artists.map(artist => {
+              return `
+                  <li>${AllSongs(artist.allAlbums[0].allSongs)}</li>
+                  
+                  
+                  `;
+                  
+                }).join('')}
+
+
+
+
           </ul>
           </div>
       </div>
   </main>
 
-<footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
+  <footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
 `;
 
 }
+

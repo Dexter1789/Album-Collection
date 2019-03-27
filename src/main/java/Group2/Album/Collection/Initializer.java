@@ -40,8 +40,8 @@ public void run(String... args) throws Exception {
 	Artist artist1 = artistRepo.save(new Artist ("Bob", "Marley", "www.pinterst.com", "25", "Dallas", "4", tag1));
 	Artist artist2 = artistRepo.save(new Artist ("Leontyne", "Price", "www.McDonalds.com", "25", "Cleveland", "4", tag2));
 	
-	Album album1 = albumRepo.save(new Album("Album1", "www.google.com", 3, artist1, tag1));
-	Album album2 = albumRepo.save(new Album("Album2", "www.bing.com", 4, artist2, tag2, tag3));	
+	Album album1 = albumRepo.save(new Album("Indie Cindy", "https://media.timeout.com/images/101552041/image.jpg", 3, artist1, tag1));
+	Album album2 = albumRepo.save(new Album("The Suburbs", "http://embed.arcadefire.com/artwork/b2.jpg", 4, artist2, tag2, tag3));	
 	
 	
 	Song song1 = songRepo.save(new Song ("good song ","3:25", 3, album1, tag1));
