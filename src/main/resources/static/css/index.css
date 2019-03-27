@@ -157,8 +157,8 @@ h1 {
   grid-template-rows: .2fr 1fr 1fr .2fr .2fr;
   grid-template-areas:
     " . logo__banner logo__banner logo__banner ."
-    " . main__content main__content2 main__content2 . "
-    " . main__content3 main__content3 main__content3 ."
+    " . main__content main__content main__content . "
+    " . main__content2 main__content3 main__content3 ."
     " footer footer footer footer footer ";
 } 
   
@@ -198,8 +198,8 @@ h1 {
   grid-template-rows: .2fr 1fr 1fr .2fr .2fr;
   grid-template-areas:
     " . logo__banner logo__banner logo__banner ."
-    " . main__content main__content2 main__content2 . "
-    " . main__content3 main__content3 main__content3 ."
+    " . main__content main__content main__content . "
+    " . main__content2 main__content3 main__content3 ."
     " footer footer footer footer footer ";
 }
 }
@@ -249,7 +249,7 @@ h1 {
   color: white;
   font-family: lato;
   font-weight: bold;
-  font-size: 120%;
+  font-size: 20px;
   padding: 5px;
   height: 100%;
 }

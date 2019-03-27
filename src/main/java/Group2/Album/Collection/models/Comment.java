@@ -30,6 +30,8 @@ public abstract class Comment {
 		return content;
 	}
 
+	
+	
 	@Override
 	public String toString() {
 		return "Comment [id=" + id + ", content=" + content + "]";

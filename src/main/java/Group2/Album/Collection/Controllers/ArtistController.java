@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Group2.Album.Collection.models.Artist;
+import Group2.Album.Collection.models.ArtistComment;
 import Group2.Album.Collection.repositories.ArtistRepository;
+import Group2.Album.Collection.repositories.CommentRepository;
 
 @RestController
 @RequestMapping("/artists")
@@ -21,6 +23,9 @@ public class ArtistController {
 	
 	@Resource
 	ArtistRepository artistRepo;
+	
+	@Resource
+	CommentRepository commentRepo;
 
 	@GetMapping("")
 	public Collection<Artist> getAllArtists() {
@@ -37,6 +42,15 @@ public class ArtistController {
 		String hometown = json.getString("hometown");
 		String rating = json.getString("rating");
 		artistRepo.save(new Artist(firstName, lastName, artistImage, age, hometown, rating));
+		return (Collection<Artist>) artistRepo.findAll();
+	}
+	
+	@PostMapping("/comments/add")
+	public Collection<Artist> addArtistComment(@RequestBody String body) throws JSONException {
+		JSONObject newArtistComment = new JSONObject(body);
+		String artistCommentContent = newArtistComment.getString("artistCommentContent");
+		Artist artist = artistRepo.findByFirstName(newArtistComment.getString("artistCommentArtist"));
+		commentRepo.save(new ArtistComment(artistCommentContent, artist));
 		return (Collection<Artist>) artistRepo.findAll();
 	}
 }
