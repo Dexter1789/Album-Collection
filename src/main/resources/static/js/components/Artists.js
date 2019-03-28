@@ -10,7 +10,7 @@ export default function Artists(artists) {
     ${artists.map(artist => {
             console.log(artists)
         return `
-        <li><img class="artist__image" src="${artist.artistImage}"/></li>
+        <li><img id="${artist.id}" class="artist__image" src="${artist.artistImage}"/></li>
         <li class="artist__name">${artist.artistName}</li>
         `;
 
