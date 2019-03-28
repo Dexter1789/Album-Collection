@@ -102,23 +102,41 @@ public void run(String... args) throws Exception {
 	// adding comments
 //	album1.addComment(comment1);
 	album1.addSong(song1);
-	album1.addSong(song2);
-	album1.addSong(song3);
-	album2.addSong(song4);
-	album2.addSong(song5);
-	album2.addSong(song6);
+	album2.addSong(song2);
+	album3.addSong(song3);
+	album4.addSong(song4);
+	album5.addSong(song5);
+	album6.addSong(song6);
 	
 	albumRepo.save(album1);
 	albumRepo.save(album2);
+	albumRepo.save(album3);
+	albumRepo.save(album4);
+	albumRepo.save(album5);
+	albumRepo.save(album6);
 	
 //	artist1.addComment(comment2);
-	artist1.addAlbum(album1);
-	artist2.addAlbum(album2);
+	artist3.addAlbum(album1);
+	artist4.addAlbum(album2);
+	artist1.addAlbum(album3);
+	artist2.addAlbum(album4);
+	artist5.addAlbum(album5);
+	artist6.addAlbum(album6);
+	
 	artistRepo.save(artist1);
 	artistRepo.save(artist2);
+	artistRepo.save(artist3);
+	artistRepo.save(artist4);
+	artistRepo.save(artist5);
+	artistRepo.save(artist6);
 	
 //	song1.addComment(comment3);
 //	song1.addComment(comment4);
 	songRepo.save(song1);
+	songRepo.save(song2);
+	songRepo.save(song3);
+	songRepo.save(song4);
+	songRepo.save(song5);
+	songRepo.save(song6);
 	
 }}
