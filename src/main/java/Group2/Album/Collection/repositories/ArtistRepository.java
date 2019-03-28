@@ -9,8 +9,7 @@ import Group2.Album.Collection.models.Artist;
 
 public interface ArtistRepository extends CrudRepository<Artist, Long>{
 
-
-	Artist findByLastName(String string);
+	Artist findByArtistName(String string);
 
 
 }

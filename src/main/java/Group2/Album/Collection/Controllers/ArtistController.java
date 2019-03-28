@@ -35,13 +35,12 @@ public class ArtistController {
 	@PostMapping("/add")
 	public Collection<Artist> addArtist(@RequestBody String body) throws JSONException {
 		JSONObject json = new JSONObject(body);
-		String firstName = json.getString("firstName");
-		String lastName = json.getString("lastName");
+		String artistName = json.getString("firstName");
 		String artistImage = json.getString("artistImage");
 		String age = json.getString("age");
 		String hometown = json.getString("hometown");
 		String rating = json.getString("rating");
-		artistRepo.save(new Artist(firstName, lastName, artistImage, age, hometown, rating));
+		artistRepo.save(new Artist(artistName, artistImage, age, hometown, rating));
 		return (Collection<Artist>) artistRepo.findAll();
 	}
 	
@@ -49,7 +48,7 @@ public class ArtistController {
 	public Collection<Artist> addArtistComment(@RequestBody String body) throws JSONException {
 		JSONObject newArtistComment = new JSONObject(body);
 		String artistCommentContent = newArtistComment.getString("artistCommentContent");
-		Artist artist = artistRepo.findByFirstName(newArtistComment.getString("artistCommentArtist"));
+		Artist artist = artistRepo.findByArtistName(newArtistComment.getString("artistCommentArtist"));
 		commentRepo.save(new ArtistComment(artistCommentContent, artist));
 		return (Collection<Artist>) artistRepo.findAll();
 	}

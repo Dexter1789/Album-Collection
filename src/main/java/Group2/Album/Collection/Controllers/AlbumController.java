@@ -38,7 +38,7 @@ public class AlbumController {
 		String albumTitle = json.getString("albumTitle");
 		String albumImage = json.getString("albumImage");
 		int rating = Integer.parseInt(json.getString("rating"));
-		Artist artist = artistRepo.findByLastName(json.getString("artist"));
+		Artist artist = artistRepo.findByArtistName(json.getString("artist"));
 		albumRepo.save(new Album(albumTitle, albumImage, rating, artist));
 		return (Collection<Artist>) artistRepo.findAll();
 	}
