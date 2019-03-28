@@ -1,3 +1,5 @@
+import SongComments from './SongComment'
+
 export default function Songs(songs) {
   console.log(songs)
   return `
@@ -5,9 +7,10 @@ export default function Songs(songs) {
   ${songs.map(song => {
     return `
 <div class="main__content">
-    <div class="song__title"><h2>${song.songTitle}</h2>
+    <h2 class="song__title" id="${song.id}">${song.songTitle}</h2>
     <p class="song__rating">${song.rating}</p>
     
+
     
     </div>
     </div>
@@ -16,7 +19,7 @@ export default function Songs(songs) {
 
 
 </main>
-<footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
+
 
 `}
  

@@ -74,11 +74,11 @@ public class Song {
 		return songComments;
 	}
 
-//	// adding a comment to Album
-//	public void addComment(Comment comment) {
-//			allComments.add(comment);
-//	}
-//	
+	// adding a comment to Album
+	public void addComment(Comment comment) {
+			songComments.add((SongComment) comment);
+	}
+	
 	// adding a tag to Song
 	public void addTag(Tag tag) {
 			allTags.add(tag);

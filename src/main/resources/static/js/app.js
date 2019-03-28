@@ -6,6 +6,7 @@ import api from './utils/api/api-actions';
 import events from './utils/events/event-actions';
 import SingleArtist from './components/SingleArtist';
 import SingleAlbum from './components/SingleAlbum';
+import SingleSong from './components/SingleSong';
 
 
 // import '../css/styles.css'
@@ -29,6 +30,14 @@ function main() {
         if(event.target.classList.contains('album__image')) {
             api.getRequest(`/albums/${event.target.id}`, album => {
                 getAppContext().innerHTML = SingleAlbum(album)
+            })
+        }
+    })
+
+    events.on(getAppContext(), 'click', () => { 
+        if(event.target.classList.contains('song__title')) {
+            api.getRequest(`/songs/${event.target.id}`, song => {
+                getAppContext().innerHTML = SingleSong(song)
             })
         }
     })
@@ -106,6 +115,36 @@ function main() {
 
 
         api.postRequest(`/albums/add/${event.target.id}`, {
+          content: content
+
+        }, (album) => getAppContext().innerHTML = SingleAlbum(album))
+
+    }
+
+})
+
+// Add Comments to Song //
+events.on(getAppContext(), 'click', () => {
+    if (event.target.classList.contains('add-comment__singleSong')) {
+        const content = document.querySelector('.add-comment__box').value
+
+
+        api.postRequest(`/songs/add/${event.target.id}`, {
+          content: content
+
+        }, (song) => getAppContext().innerHTML = SingleSong(song))
+
+    }
+
+})
+
+// Add Comments to Song //
+events.on(getAppContext(), 'click', () => {
+    if (event.target.classList.contains('add-comment__singleSong')) {
+        const content = document.querySelector('.add-comment__box').value
+
+
+        api.postRequest(`/songs/add/${event.target.id}`, {
           content: content
 
         }, (album) => getAppContext().innerHTML = SingleAlbum(album))
