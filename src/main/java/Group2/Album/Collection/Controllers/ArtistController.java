@@ -57,24 +57,36 @@ public class ArtistController {
 		return artist;
 	}
 	
-	@PostMapping("/add")
-	public Collection<Artist> addArtist(@RequestBody String body) throws JSONException {
-		JSONObject json = new JSONObject(body);
-		String artistName = json.getString("artistName");
-		String artistImage = json.getString("artistImage");
-		String age = json.getString("age");
-		String hometown = json.getString("hometown");
-		String rating = json.getString("rating");
-		artistRepo.save(new Artist(artistName, artistImage, age, hometown, rating));
-		return (Collection<Artist>) artistRepo.findAll();
-	}
+//	@PostMapping("/add")
+//	public Collection<Artist> addArtist(@RequestBody String body) throws JSONException {
+//		JSONObject json = new JSONObject(body);
+//		String artistName = json.getString("artistName");
+//		String artistImage = json.getString("artistImage");
+//		String age = json.getString("age");
+//		String hometown = json.getString("hometown");
+//		String rating = json.getString("rating");
+//		artistRepo.save(new Artist(artistName, artistImage, age, hometown, rating));
+//		return (Collection<Artist>) artistRepo.findAll();
+//	}
 	
-	@PostMapping("/comments/add")
-	public Collection<Artist> addArtistComment(@RequestBody String body) throws JSONException {
-		JSONObject newArtistComment = new JSONObject(body);
-		String artistCommentContent = newArtistComment.getString("artistCommentContent");
-		Artist artist = artistRepo.findByArtistName(newArtistComment.getString("artistCommentArtist"));
-		commentRepo.save(new ArtistComment(artistCommentContent, artist));
-		return (Collection<Artist>) artistRepo.findAll();
-	}
+	@PostMapping("/add/{id}")
+	public Artist addCommentToArtist(@RequestBody String body, @PathVariable Long id) throws JSONException {
+		JSONObject json = new JSONObject(body);
+		String content = json.getString("content");
+		Artist artist = artistRepo.findById(id).get();
+		ArtistComment commentToAdd = new ArtistComment(content, artist);
+		commentRepo.save(commentToAdd);
+		artist.addComment(commentToAdd);
+		artistRepo.save(artist);
+		return artist;
+	
+//	@PostMapping("/comments/add")
+//	public Collection<Artist> addArtistComment(@RequestBody String body) throws JSONException {
+//		JSONObject newArtistComment = new JSONObject(body);
+//		String artistCommentContent = newArtistComment.getString("artistCommentContent");
+//		Artist artist = artistRepo.findByArtistName(newArtistComment.getString("artistCommentArtist"));
+//		commentRepo.save(new ArtistComment(artistCommentContent, artist));
+//		return (Collection<Artist>) artistRepo.findAll();
+//	}
+}
 }

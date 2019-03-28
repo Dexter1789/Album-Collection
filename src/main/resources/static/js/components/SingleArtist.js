@@ -15,6 +15,10 @@ export default function SingleArtist(artist) {
 
        
     </ul>
+    <h3>Comments on this Author</h3>
+    <ul class="artist-comments">
+        <li>${artist.artistComments.content}</li>
+    </ul>
 
     <section class="add-album">
         <input type="text" class="add-album__title" placeholder="Album Title">
