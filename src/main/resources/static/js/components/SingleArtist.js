@@ -10,22 +10,16 @@ export default function SingleArtist(artist) {
 
     <ul class="artist__list">
         <li>
-            <div class="artist__container">
-                <img id="${artist.id}" class="artist__image" src="${artist.artistImage}" alt="Artist Image"/>
-                <h4 class="artist__name">${artist.artistName}</h4>
-                <h5 class="artist__hometown">${artist.hometown}</h5>
-                <h5 class="artist__rating">${artist.rating}</h5>
+            <div class="artist__container2">
+                <img id="${artist.id}" class="artist__image2" src="${artist.artistImage}" alt="Artist Image"/>
+                <h4 class="artist__name2">${artist.artistName}</h4>
+                <h5 class="artist__hometown">Hometown: ${artist.hometown}</h5>
+                <h5 class="artist__rating">Avg Rating: ${artist.rating}</h5>
             </div> 
         </li>
     </ul>
 
-    // <ul class="artist">
-    //     <li><img id="${artist.id}" class="artist__image" src="${artist.artistImage}"/></li>
-    //     <li class="artist__name">${artist.artistName}</li>
-    //     <li class="artist__age">${artist.age}</li>
-    //     <li class="artist__hometown">${artist.hometown}</li>
-    //     <li class="artist__rating">${artist.rating}</li>
-    //         <ul>
+
             <li class="artist__albums">${Albums(artist.allAlbums)}</li>
 
        

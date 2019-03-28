@@ -167,6 +167,7 @@ footer {
 /*  (5) Artist Page CSS START */
 
 .artist__list {
+  padding-top: 80px;
   color: white;
   flex-wrap: wrap;
   display: flex;
@@ -178,6 +179,8 @@ footer {
   display: flex;
   flex-direction: column;
   margin: 20px;
+  background-color: rgba(0, 0, 15, 0.9);
+  text-align: center;
 }
 
 .artist__container:hover {
@@ -189,6 +192,15 @@ footer {
   -1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
+.artist__container2 {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  margin-top: 40px;
+  background-color: rgba(0, 0, 15, 0.9);
+  text-align: center;
+}
+
 .artist__image {
   height: 200px;
   width: 200px;
@@ -196,8 +208,14 @@ footer {
   overflow: hidden;
 }
 
+.artist__image2 {
+  height: 350px;
+  width: 350px;
+  margin-bottom: -5px;
+  overflow: hidden;
+}
+
 .artist__name {
-  background-color: rgba(0, 0, 15, 0.9);
   height: 100px;
   width: 200px;
   display: flex;
@@ -206,6 +224,29 @@ footer {
   text-align: center;
   font-family: 'IM Fell English', serif;
   font-size: 30px;
+}
+
+.artist__name2 {
+  height: 60px;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'IM Fell English', serif;
+  font-size: 30px;
+}
+
+.artist__hometown {
+  font-family: 'IM Fell English', serif;
+  font-size: 20px;
+  
+}
+
+.artist__rating {
+  font-family: 'IM Fell English', serif;
+  font-size: 20px;
+  padding: 10px
 }
 
 .add-artist {
