@@ -77,10 +77,10 @@ public class Artist {
 		return artistComments;
 	}
 
-//	// adding a comment to Artist
-//	public void addComment(Comment comment) {
-//			allComments.add(comment);
-//	}
+	// adding a comment to Artist
+	public void addComment(Comment comment) {
+			artistComments.add((ArtistComment) comment);
+	}
 	
 	// adding a tag to Artist
 	public void addTag(Tag tag) {
@@ -101,6 +101,7 @@ public class Artist {
 				+ ", hometown=" + hometown + ", rating=" + rating + ", allTags=" + allTags + ", artistComments="
 				+ artistComments + ", allAlbums=" + allAlbums + "]";
 	}
+
 
 
 	

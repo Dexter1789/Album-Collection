@@ -5,6 +5,7 @@ import Songs from './components/Songs';
 import api from './utils/api/api-actions';
 import events from './utils/events/event-actions';
 import SingleArtist from './components/SingleArtist';
+import SingleAlbum from './components/SingleAlbum';
 
 
 // import '../css/styles.css'
@@ -22,14 +23,16 @@ function main() {
                 getAppContext().innerHTML = SingleArtist(artist)
             })
         }
-      
-     })
-}
-    
+    })
 
+    events.on(getAppContext(), 'click', () => { 
+        if(event.target.classList.contains('album__image')) {
+            api.getRequest(`/albums/${event.target.id}`, album => {
+                getAppContext().innerHTML = SingleAlbum(album)
+            })
+        }
+    })
 
-    
-function addArtist() {
     events.on(getAppContext(), 'click', () => {
         if (event.target.classList.contains('add-artist__submit')) {
             const artistName = document.querySelector('.add-artist__name').value
@@ -37,7 +40,7 @@ function addArtist() {
             const age = document.querySelector('.add-artist__age').value
             const hometown = document.querySelector('.add-artist__hometown').value
             const rating = document.querySelector('.add-artist__rating').value
-
+    
             api.postRequest('/artists/add', {
                 artistName: artistName,
                 artistImage: artistImage,
@@ -45,31 +48,71 @@ function addArtist() {
                 hometown: hometown,
                 rating: rating
             }, (artists) => getAppContext().innerHTML = Artists(artists))
-
+    
         }
-   
+    
     })
-}
-
-function addAlbum() {
+    
     events.on(getAppContext(), 'click', () => {
         if (event.target.classList.contains('add-album__submit')) {
             const albumTitle = document.querySelector('.add-album__title').value
             const albumImage = document.querySelector('.add-album__image').value
             const rating = document.querySelector('.add-album__rating').value
-            const artist = document.querySelector('.add-album__artist').value
-
-            api.postRequest('/albums/add', {
+            
+            api.postRequest(`/artists/${event.target.id}`, {
                 albumTitle: albumTitle,
                 albumImage: albumImage,
-                rating: rating,
-                artist: artist
-            }, (artists) => getAppContext().innerHTML = Albums(albums))
-
+                rating: rating
+            }, (artist) => getAppContext().innerHTML = SingleArtist(artist))
+            
         }
-
+        
     })
-}
+
+    events.on(getAppContext(), 'click', () => {
+        if (event.target.classList.contains('add-song__submit')) {
+            const songTitle = document.querySelector('.add-song__title').value
+            const duration = document.querySelector('.add-song__duration').value
+            const rating = document.querySelector('.add-song__rating').value
+            
+            api.postRequest(`/albums/${event.target.id}`, {
+                songTitle: songTitle,
+                duration: duration,
+                rating: rating
+            }, (album) => getAppContext().innerHTML = SingleAlbum(album))
+            
+        }
+        
+    })
+    // Adding Comments to Single Artist // 
+    events.on(getAppContext(), 'click', () => {
+        if (event.target.classList.contains('add-comment__singleArtist')) {
+            const content = document.querySelector('.add-comment__box').value
+ 
+    
+            api.postRequest(`/artists/add/${event.target.id}`, {
+              content: content
+
+            }, (artist) => getAppContext().innerHTML = SingleArtist(artist))
+    
+        }
+    
+    })
+
+    // Add Comments to Album //
+    events.on(getAppContext(), 'click', () => {
+    if (event.target.classList.contains('add-comment__singleAlbum')) {
+        const content = document.querySelector('.add-comment__box').value
+
+
+        api.postRequest(`/albums/add/${event.target.id}`, {
+          content: content
+
+        }, (album) => getAppContext().innerHTML = SingleAlbum(album))
+
+    }
+
+})
 
 function addSong() {
     events.on(getAppContext(), 'click', () => {
@@ -97,3 +140,4 @@ function getAppContext() {
 
 
    
+}

@@ -1,6 +1,8 @@
 import Albums from './Albums'
+import ArtistComment from './ArtistComment'
 
 export default function SingleArtist(artist) {
+  
     return `
     <header>
     <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
@@ -17,6 +19,24 @@ export default function SingleArtist(artist) {
 
        
     </ul>
+    <h3>Comments on this Artist</h3>
+    <ul class="artist-comments">
+        <li>${ArtistComment(artist.artistComments)}</li>
+    </ul>
 
+    <section class="add-album">
+        <input type="text" class="add-album__title" placeholder="Album Title">
+        <input type="text" class="add-album__image" placeholder="Album Image">
+        <input type="text" class="add-album__rating" placeholder="Album Rating">
+        <button class="add-album__submit" id="${artist.id}">Add Album</button>
+    </section>
+
+    <section class="add-comments">
+        <input type="text" class="add-comment__box" placeholder="Leave A Comment">
+        <button class="add-comment__singleArtist" id="${artist.id}">Add Comment</button>
+    </section>
+
+
+    <footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
     `;
 }

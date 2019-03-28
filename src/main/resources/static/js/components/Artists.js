@@ -1,3 +1,4 @@
+import ArtistComment from './ArtistComment'
 import Albums from './Albums'
 export default function Artists(artists) {
 
@@ -7,6 +8,7 @@ export default function Artists(artists) {
         <a href="index.html"><button class="menu__button"><i class="fa fa-bars"></i></button></a>
     </header>
     
+
     <div class="logo2"><img src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></div>
     <ul class="artist__list">
         ${artists.map(artist => {
@@ -17,6 +19,7 @@ export default function Artists(artists) {
                     <h4 class="artist__name">${artist.artistName}</h4>
                 </div> 
             </li>
+
         `;
     
     }).join('')}
