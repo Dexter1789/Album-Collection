@@ -2,18 +2,19 @@ import Albums from './Albums'
 export default function Artists(artists) {
 
     return `
-    <h1>Before They Sold Out</h1>
-    <h2>Artists</h2>
-
+    <header>
+    <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
+    </header>
     
-    <ul class="artist">
-    ${artists.map(artist => {
+    <div class="artist__box">
+            ${artists.map(artist => {
             console.log(artists)
-        return `
-        <li><img id="${artist.id}" class="artist__image" src="${artist.artistImage}"/></li>
-        <li class="artist__name">${artist.artistName}</li>
-        `;
-
+                return `
+                <img id="${artist.id}" class="artist__image" src="${artist.artistImage}"/>
+                <p class="artist__name">${artist.artistName}</p>
+    </div>
+    `;
+    
     }).join('')}
         <section class="add-artist">
             <input type="text" class="add-artist__name" placeholder="Artist's Name">
@@ -23,7 +24,7 @@ export default function Artists(artists) {
             <input type="text" class="add-artist__rating" placeholder="Artist Rating">
             <button class="add-artist__submit">Add Artist</button>
         </section>
-    </ul>
-    <footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
+    
+    
     `;
 }

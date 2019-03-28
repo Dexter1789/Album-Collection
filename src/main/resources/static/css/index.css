@@ -3,6 +3,7 @@
 /*  (2) Grid Areas */
 /*  (3) Header CSS*/
 /*  (4) Body CSS */
+/*  (5) Artist Page CSS */
 /*  (9) Footer CSS */
 
 
@@ -23,9 +24,11 @@ li {
 }
 
 body {
-  background-image: url("https://images.unsplash.com/photo-1510148199876-8a856ee41d42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+  background-image: url("https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/wood-background.png");
   color: white;
   margin-top: 110px;
+  display: grid;
+  grid-template-columns: 3;
 }
 
 /*  (1) Universal CSS END */
@@ -74,8 +77,7 @@ footer {
 
 header {
   background-color: rgba(0, 0, 15, 0.9); 
-  display: grid;
-  grid-template-columns: .05fr 1fr .05fr;
+  display: flex;
   flex-direction: columns;
   justify-content: space-around;
   padding: 20px;
@@ -96,19 +98,7 @@ header h1 {
   padding-right: 90px;
 }
 
-.menu__button {
-  display: initial;
-  float: right;
-  background-color: transparent;
-  border: none;
-  grid-column-start: 3;
-  margin-right: 40px;
-}
 
-.menu__button i {
-  color: white;
-  font-size: 30px;
-}
 
 .nav__menu ul,
 .nav__menu li{
@@ -128,16 +118,7 @@ header h1 {
 /*  (3) Header CSS END */
 
 /*  (4) Body CSS START */
-.main__wrapper {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    " main__content "
-    " main__content2 "
-    " main__content3 "
-    " footer ";
-}
+
 
 h1 {
   display: none;
@@ -260,3 +241,27 @@ footer {
   text-align: center;
   padding: 20px;
 }
+
+/*  (5) Artist Page CSS START */
+
+.artist__box {
+  align-self: center;
+  grid-column-start: 2;
+}
+.artist__image {
+  height: auto;
+  width: 200px;
+  margin-top: 20px;
+  margin-bottom: -5px;
+}
+.artist__name {
+  background-color: rgba(0, 0, 15, 0.9);
+  height: 100px;
+  width: 200px;
+  text-align: center;
+  font-family: Rye;
+  font-size: 30px;
+  text-justify: center;
+}
+
+/*  (5) Artist Page CSS END */
