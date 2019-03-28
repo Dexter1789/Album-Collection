@@ -2,7 +2,7 @@ import Albums from './Albums'
 import ArtistComment from './ArtistComment'
 
 export default function SingleArtist(artist) {
-    console.log(artist)
+  
     return `
     
     <ul class="artist">

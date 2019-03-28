@@ -1,4 +1,4 @@
-export default function ArtistComment(comments) {
+export default function AlbumComment(comments) {
     return `
         <ul id="comment">
             ${comments.map(comment => {

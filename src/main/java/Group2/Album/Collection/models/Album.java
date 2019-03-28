@@ -84,10 +84,10 @@ public class Album {
 		allSongs.add(song);
 	}
 
-	// adding a comment to Album
-//	public void addComment(Comment comment) {
-//		allComments.add(comment);
-//	}
+	// adding a comment to Artist
+	public void addComment(Comment comment) {
+		albumComments.add((AlbumComment) comment);
+	}
 	
 	// adding a tag to Album
 	public void addTag(Tag tag) {
