@@ -6,7 +6,7 @@ export default function Albums(albums) {
 ${albums.map(album => {
   return `
 <div class="main__content">
-              <div class="content__img"><img src="${album.albumImage}"></div> 
+              <div><img src="${album.albumImage}" class="album__image" id="${album.id}"></div> 
               <div class="main__text"><h2>${album.albumTitle}</h2>
               <p class="album__rating">${album.rating}</p>
               

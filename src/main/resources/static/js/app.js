@@ -5,6 +5,7 @@ import Songs from './components/Songs';
 import api from './utils/api/api-actions';
 import events from './utils/events/event-actions';
 import SingleArtist from './components/SingleArtist';
+import SingleAlbum from './components/SingleAlbum';
 
 
 // import '../css/styles.css'
@@ -22,11 +23,16 @@ function main() {
                 getAppContext().innerHTML = SingleArtist(artist)
             })
         }
-      
-     })
-}
-    
+    })
 
+    events.on(getAppContext(), 'click', () => { 
+        if(event.target.classList.contains('album__image')) {
+            api.getRequest(`/albums/${event.target.id}`, album => {
+                getAppContext().innerHTML = SingleAlbum(album)
+            })
+        }
+    })
+}
 
     
 function addArtist() {
