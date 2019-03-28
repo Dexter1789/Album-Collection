@@ -39,7 +39,7 @@ public class AlbumController {
 	}
 	
 	@PostMapping("/add")
-	public Collection<Artist> addAlbum(@RequestBody String body) throws JSONException {
+	public Collection<Artist> addAlbumToArtist(@RequestBody String body) throws JSONException {
 		JSONObject json = new JSONObject(body);
 		String albumTitle = json.getString("albumTitle");
 		String albumImage = json.getString("albumImage");

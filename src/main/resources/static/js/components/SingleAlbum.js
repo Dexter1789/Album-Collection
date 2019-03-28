@@ -13,6 +13,9 @@ export default function SingleAlbum(album) {
 
        
     </ul>
+
+    
+
     <footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
     `;
 }

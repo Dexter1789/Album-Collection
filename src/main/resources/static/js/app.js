@@ -32,10 +32,7 @@ function main() {
             })
         }
     })
-}
 
-    
-function addArtist() {
     events.on(getAppContext(), 'click', () => {
         if (event.target.classList.contains('add-artist__submit')) {
             const artistName = document.querySelector('.add-artist__name').value
@@ -43,7 +40,7 @@ function addArtist() {
             const age = document.querySelector('.add-artist__age').value
             const hometown = document.querySelector('.add-artist__hometown').value
             const rating = document.querySelector('.add-artist__rating').value
-
+    
             api.postRequest('/artists/add', {
                 artistName: artistName,
                 artistImage: artistImage,
@@ -51,31 +48,28 @@ function addArtist() {
                 hometown: hometown,
                 rating: rating
             }, (artists) => getAppContext().innerHTML = Artists(artists))
-
+    
         }
-   
+    
     })
-}
-
-function addAlbum() {
+    
     events.on(getAppContext(), 'click', () => {
         if (event.target.classList.contains('add-album__submit')) {
             const albumTitle = document.querySelector('.add-album__title').value
             const albumImage = document.querySelector('.add-album__image').value
             const rating = document.querySelector('.add-album__rating').value
-            const artist = document.querySelector('.add-album__artist').value
-
-            api.postRequest('/albums/add', {
+            
+            api.postRequest(`/artists/${event.target.id}`, {
                 albumTitle: albumTitle,
                 albumImage: albumImage,
-                rating: rating,
-                artist: artist
-            }, (artists) => getAppContext().innerHTML = Albums(albums))
-
+                rating: rating
+            }, (artist) => getAppContext().innerHTML = SingleArtist(artist))
+            
         }
-
+        
     })
 }
+
 
 function addSong() {
     events.on(getAppContext(), 'click', () => {
