@@ -1,4 +1,5 @@
 import Songs from './Songs'
+import AlbumComment from './AlbumComment'
 
 export default function SingleAlbum(album) {
     return `
@@ -14,6 +15,13 @@ export default function SingleAlbum(album) {
        
     </ul>
 
+   
+    <h3>Comments on this Album</h3>
+    <ul class="album-comments">
+        <li>${AlbumComment(album.albumComments)}</li>
+    </ul>
+
+
     <section class="add-song">
         <input type="text" class="add-song__title" placeholder="Song Title">
         <input type="text" class="add-song__duration" placeholder="Song Duration">
@@ -21,6 +29,13 @@ export default function SingleAlbum(album) {
         <button class="add-song__submit" id="${album.id}">Add Song</button>
     </section>
 
+    <section class="add-comments">
+        <input type="text" class="add-comment__box" placeholder="Leave A Comment">
+        <button class="add-comment__singleAlbum" id="${album.id}">Add Comment</button>
+    </section>
+
     <footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
     `;
 }
+
+

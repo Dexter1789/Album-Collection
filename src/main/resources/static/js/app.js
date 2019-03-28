@@ -98,8 +98,21 @@ function main() {
         }
     
     })
-}
 
+    // Add Comments to Album //
+    events.on(getAppContext(), 'click', () => {
+    if (event.target.classList.contains('add-comment__singleAlbum')) {
+        const content = document.querySelector('.add-comment__box').value
+
+
+        api.postRequest(`/albums/add/${event.target.id}`, {
+          content: content
+
+        }, (album) => getAppContext().innerHTML = SingleAlbum(album))
+
+    }
+
+})
 
 function addSong() {
     events.on(getAppContext(), 'click', () => {
@@ -127,3 +140,4 @@ function getAppContext() {
 
 
    
+}
