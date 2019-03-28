@@ -11,6 +11,7 @@
 * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
   font-family: 'Lato', sans-serif;
 }
 
@@ -25,45 +26,16 @@ li {
 
 body {
   background-image: url("https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/wood-background.png");
-  color: white;
-  margin-top: 110px;
-  display: grid;
-  grid-template-columns: 3;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /*  (1) Universal CSS END */
-
 /*  (2) Grid Areas START */
-
-header {
-  grid-area: header;
-}
-
-.logo__banner {
-  grid-area: logo__banner;
-}
-
-.main__content {
-  grid-area: main__content;
-}
-
-.main__content2 {
-  grid-area: main__content2;
-}
-
-.main__content3 {
-  grid-area: main__content3;
-}
-
-footer {
-  grid-area: footer;
-}
-
 /*  (2) Grid Areas END */
-
-
 /*  (3) Header CSS START */
-
 
 .logo {
   height: 70px;
@@ -71,23 +43,47 @@ footer {
 }
 
 .logo2 {
-  height: 100%;
-  width: auto;
+  display: flex;
+  margin-top: 110px;
+  margin-bottom: 20px;
+  justify-content: space-around;
+  height: 350px;
+  width: 100%;
+}
+
+.logo2 > img {
+  height: auto;
+  width: 350px;
 }
 
 header {
   background-color: rgba(0, 0, 15, 0.9); 
   display: flex;
   flex-direction: columns;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 20px;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 999;
+}
+
+.menu__button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 30px;
+  margin: 10px;
+}
+
+.menu__button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 header h1 {
-  font-family: Rye;
+  font-family: 'IM Fell English', serif;
   grid-column-start: 2;
   text-align: center;
   margin-top: 10px;
@@ -98,11 +94,9 @@ header h1 {
   padding-right: 90px;
 }
 
-
-
 .nav__menu ul,
 .nav__menu li{
-  font-family: rye;
+  font-family: 'IM Fell English', serif;
   font-size: 30px;
   display: flex;
   flex-direction: columns;
@@ -114,105 +108,24 @@ header h1 {
   text-shadow: 1px 1px 50px white;
 }
 
-
 /*  (3) Header CSS END */
 
 /*  (4) Body CSS START */
 
-
 h1 {
-  display: none;
-}
-
-@media only screen and (max-width: 699px) {
-  .logo__banner {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 700px) {
-.main__wrapper {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: .3fr 1fr 1fr 1fr .3fr;
-  grid-template-rows: .2fr 1fr 1fr .2fr .2fr;
-  grid-template-areas:
-    " . logo__banner logo__banner logo__banner ."
-    " . main__content main__content main__content . "
-    " . main__content2 main__content3 main__content3 ."
-    " footer footer footer footer footer ";
-} 
-  
-  body {
-  background-image: url("https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/wood-background.png");
-   background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-  
-  h1 {
-  display: inherit;
-}
-  
-  
-  .nav__menu {
-    display: inherit;
-    margin-top: 5px;
-  }
-  
-  
-  .logo__banner {
-    text-align: center;
-  }
-  
-  .menu__button {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 1100px) {
-.main__wrapper {
-  display: grid;
-  grid-gap: 30px;
-  grid-template-columns: .8fr 1fr 1fr 1fr .8fr;
-  grid-template-rows: .2fr 1fr 1fr .2fr .2fr;
-  grid-template-areas:
-    " . logo__banner logo__banner logo__banner ."
-    " . main__content main__content main__content . "
-    " . main__content2 main__content3 main__content3 ."
-    " footer footer footer footer footer ";
-}
+display: inherit;
 }
 
 
-.main__content,
-.main__content2,
-.main__content3 {
-  box-shadow: 1px 1px 1px black;
+.logo__banner {
   text-align: center;
-  overflow: hidden;
-  padding: 0px;
-}
-
-.main__content ul li,
-.main__content2 ul li,
-.main__content3 ul li {
-  padding: 10px;
-}
-
-.main__content h2,
-.main__content2 h2,
-.main__content3 h2 {
-  font-family: rye;
-  font-weight: normal;
 }
 
 .main__subtitle {
   margin: 10px;
 }
 
-.content__img {
+/* .content__img {
   width: 100%;
   max-height: 150px;
   overflow: hidden;
@@ -233,35 +146,102 @@ h1 {
   font-size: 20px;
   padding: 5px;
   height: 100%;
-}
+} */
 
 /*  (4) Body CSS END */
 
 footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 15, 0.9);
+  height: 80px;
+  width: 100%;
+  color: white;
   text-align: center;
-  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
 }
 
 /*  (5) Artist Page CSS START */
 
-.artist__box {
-  align-self: center;
-  grid-column-start: 2;
+.artist__list {
+  color: white;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.artist__container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.artist__container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
+  -1px -1px 1px rgba(255, 255, 255, 0.5), 
+  1px -1px 1px rgba(255, 255, 255, 0.5), 
+  -1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
 .artist__image {
-  height: auto;
+  height: 200px;
   width: 200px;
-  margin-top: 20px;
   margin-bottom: -5px;
+  overflow: hidden;
 }
+
 .artist__name {
   background-color: rgba(0, 0, 15, 0.9);
   height: 100px;
   width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-family: Rye;
+  font-family: 'IM Fell English', serif;
   font-size: 30px;
-  text-justify: center;
+}
+
+.add-artist {
+  padding-bottom: 120px;
+  padding-top: 20px;
+  padding-left: 12.5%;
+  padding-right: 12.5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+input {
+  width: 120px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.add-artist__submit {
+  font-family: 'IM Fell English', serif;
+  font-weight: 800;
+  font-size: 20px;
+  width: 120px;
+  height: 30px;
+  background-color: rgba(0, 0, 15, 0.9);
+  color: white;
+  border: none;
+}
+
+.add-artist__submit:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
+  -1px -1px 1px rgba(255, 255, 255, 0.5), 
+  1px -1px 1px rgba(255, 255, 255, 0.5), 
+  -1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 /*  (5) Artist Page CSS END */

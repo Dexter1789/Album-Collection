@@ -55,7 +55,7 @@ public void run(String... args) throws Exception {
 	Artist artist3 = artistRepo.save(new Artist ("Pixies", "https://img.apmcdn.org/7f0e09c9a5c354ce654efe8f38fecd7008970d5b/uncropped/018430-20170220-pixies.jpeg", "various", "Boston", "4", tag3, tag1));
 	Artist artist4 = artistRepo.save(new Artist ("Arcade Fire", "https://static.stereogum.com/blogs.dir/2/files/2010/07/af-alt-cover-608x608.jpg", "various", "Quebec", "5", tag1, tag3));
 	Artist artist5 = artistRepo.save(new Artist ("Aesop Rock", "https://upload.wikimedia.org/wikipedia/commons/4/44/Ian_bavitz.jpg", "Stopped aging before it was cool.", "Portland, Oregon", "5", tag9, tag10));
-	Artist artist6 = artistRepo.save(new Artist ("Beyoncé", "https://specials-images.forbesimg.com/imageserve/59f4e6c24bbe6f37dda1445b/416x416.jpg?background=000000&cropX1=81&cropX2=1997&cropY1=133&cropY2=2049", "Will never age", "Houston, TX",  "5", tag10, tag9, tag6));
+	Artist artist6 = artistRepo.save(new Artist ("BeyoncÃ©", "https://specials-images.forbesimg.com/imageserve/59f4e6c24bbe6f37dda1445b/416x416.jpg?background=000000&cropX1=81&cropX2=1997&cropY1=133&cropY2=2049", "Will never age", "Houston, TX",  "5", tag10, tag9, tag6));
 
 	
 //	Album album = albumRepo.save(new Album("", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png", , artist, tag, tag));
