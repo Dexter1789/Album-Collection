@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Group2.Album.Collection.models.Album;
 import Group2.Album.Collection.models.Artist;
+import Group2.Album.Collection.models.Song;
 import Group2.Album.Collection.repositories.AlbumRepository;
 import Group2.Album.Collection.repositories.ArtistRepository;
+import Group2.Album.Collection.repositories.SongRepository;
 
 @RestController
 @RequestMapping("/albums")
@@ -27,6 +29,9 @@ public class AlbumController {
 	
 	@Resource
 	ArtistRepository artistRepo;
+	
+	@Resource
+	SongRepository songRepo;
 
 	@GetMapping("")
 	public Collection<Album> getAllAlbums() {
@@ -36,6 +41,20 @@ public class AlbumController {
 	@GetMapping("/{id}")
 	public Album getSingleAlbum(@PathVariable Long id) {
 		return albumRepo.findById(id).get();
+	}
+	
+	@PostMapping("/{id}")
+	public Album addSongToAlbum(@PathVariable Long id, @RequestBody String body) throws JSONException {
+		JSONObject json = new JSONObject(body);
+		String songTitle = json.getString("songTitle");
+		String duration = json.getString("duration");
+		int rating = Integer.parseInt(json.getString("rating"));
+		Album album = albumRepo.findById(id).get();
+		Song songToAdd = new Song(songTitle, duration, rating, album);
+		songRepo.save(songToAdd);
+		album.addSong(songToAdd);
+		albumRepo.save(album);
+		return album;
 	}
 	
 	@PostMapping("/add")

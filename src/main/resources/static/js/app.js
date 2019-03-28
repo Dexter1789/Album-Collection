@@ -68,6 +68,22 @@ function main() {
         }
         
     })
+
+    events.on(getAppContext(), 'click', () => {
+        if (event.target.classList.contains('add-song__submit')) {
+            const songTitle = document.querySelector('.add-song__title').value
+            const duration = document.querySelector('.add-song__duration').value
+            const rating = document.querySelector('.add-song__rating').value
+            
+            api.postRequest(`/albums/${event.target.id}`, {
+                songTitle: songTitle,
+                duration: duration,
+                rating: rating
+            }, (album) => getAppContext().innerHTML = SingleAlbum(album))
+            
+        }
+        
+    })
 }
 
 
