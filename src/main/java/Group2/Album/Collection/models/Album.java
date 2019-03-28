@@ -1,12 +1,12 @@
 package Group2.Album.Collection.models;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -20,6 +20,7 @@ public class Album {
 	@GeneratedValue
 	private Long id;
 	private String albumTitle;
+	@Lob
 	private String albumImage; 
 	private int rating;
 	
@@ -28,7 +29,7 @@ public class Album {
 	private Artist artist;
 
 	@ManyToMany
-	private Collection<Tag> allTags;
+	private Collection<AlbumTag> albumTags;
 	
 	@OneToMany(mappedBy="album")
 	private Collection<AlbumComment> albumComments;
@@ -38,12 +39,11 @@ public class Album {
 	
 	public Album() {}
 	
-	public Album(String albumTitle, String albumImage, int rating , Artist artist, Tag ...allTags) {
+	public Album(String albumTitle, String albumImage, int rating , Artist artist) {
 		this.albumTitle = albumTitle;
 		this.albumImage = albumImage;
 		this.rating = rating;
 		this.artist = artist;
-		this.allTags = Arrays.asList(allTags);
 		this.allSongs = new ArrayList<Song>();
 	}
 
@@ -67,8 +67,8 @@ public class Album {
 		return artist;
 	}
 
-	public Collection<Tag> getAllTags() {
-		return allTags;
+	public Collection<AlbumTag> getAlbumTags() {
+		return albumTags;
 	}
 
 	public Collection<AlbumComment> getAlbumComments() {
@@ -91,13 +91,15 @@ public class Album {
 	
 	// adding a tag to Album
 	public void addTag(Tag tag) {
-		allTags.add(tag);
+		albumTags.add((AlbumTag) tag);
 	}
 
 	@Override
 	public String toString() {
 		return "Album [id=" + id + ", albumTitle=" + albumTitle + ", albumImage=" + albumImage + ", rating=" + rating
-				+ ", artist=" + artist + ", allTags=" + allTags + "]";
+				+ ", artist=" + artist + ", albumTags=" + albumTags + ", albumComments=" + albumComments + ", allSongs="
+				+ allSongs + "]";
 	}
+
 	
 }

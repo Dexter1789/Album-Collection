@@ -25,7 +25,7 @@ public class Artist {
 	private String rating;
 	
 	@ManyToMany
-	private Collection<Tag> allTags;
+	private Collection<ArtistTag> artistTags;
 	
 	@OneToMany(mappedBy="artist")
 	private Collection<ArtistComment> artistComments;
@@ -35,13 +35,12 @@ public class Artist {
 	
 	public Artist () {}
 
-	public Artist(String artistName, String artistImage, String age, String hometown, String rating, Tag ...allTags) {
+	public Artist(String artistName, String artistImage, String age, String hometown, String rating) {
 		this.artistName = artistName;
 		this.artistImage = artistImage;
 		this.age = age;
 		this.hometown = hometown;
 		this.rating = rating;
-		this.allTags = Arrays.asList(allTags);
 		this.allAlbums = new ArrayList<Album>();
 	} 
 	
@@ -69,8 +68,8 @@ public class Artist {
 		return rating;
 	}
 
-	public Collection<Tag> getAllTags() {
-		return allTags;
+	public Collection<ArtistTag> getArtistTags() {
+		return artistTags;
 	}
 
 	public Collection<ArtistComment> getArtistComments() {
@@ -84,7 +83,7 @@ public class Artist {
 	
 	// adding a tag to Artist
 	public void addTag(Tag tag) {
-		allTags.add(tag);
+		artistTags.add((ArtistTag) tag);
 	}
 
 	public Collection<Album> getAllAlbums() {
@@ -98,12 +97,9 @@ public class Artist {
 	@Override
 	public String toString() {
 		return "Artist [id=" + id + ", artistName=" + artistName + ", artistImage=" + artistImage + ", age=" + age
-				+ ", hometown=" + hometown + ", rating=" + rating + ", allTags=" + allTags + ", artistComments="
+				+ ", hometown=" + hometown + ", rating=" + rating + ", artistTags=" + artistTags + ", artistComments="
 				+ artistComments + ", allAlbums=" + allAlbums + "]";
 	}
 
-
-
-	
 	
 }

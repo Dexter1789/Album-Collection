@@ -30,19 +30,18 @@ public class Song {
 	private Album album;
 
 	@ManyToMany
-	private Collection<Tag> allTags;
+	private Collection<SongTag> songTags;
 
 	@OneToMany(mappedBy="song")
 	private Collection<SongComment> songComments;
 
 	public Song() {}
 
-	public Song(String songTitle, String duration, int rating, Album album, Tag ...allTags) {
+	public Song(String songTitle, String duration, int rating, Album album) {
 		this.songTitle = songTitle;
 		this.duration = duration;
 		this.rating = rating;
 		this.album = album;
-		this.allTags = Arrays.asList(allTags);
 	}
 	
 	public Long getId() {
@@ -66,8 +65,8 @@ public class Song {
 		return album;
 	}
 
-	public Collection<Tag> getAllTags() {
-		return allTags;
+	public Collection<SongTag> getAllTags() {
+		return songTags;
 	}
 
 	public Collection<SongComment> getsongComments() {
@@ -76,18 +75,19 @@ public class Song {
 
 	// adding a comment to Album
 	public void addComment(Comment comment) {
-			songComments.add((SongComment) comment);
+		songComments.add((SongComment) comment);
 	}
 	
 	// adding a tag to Song
 	public void addTag(Tag tag) {
-			allTags.add(tag);
+		songTags.add((SongTag) tag);
 	}
 
 	@Override
 	public String toString() {
-		return "Song [id=" + id + ", songTitle=" + songTitle + ", duration=" + duration
-				+ ", rating=" + rating + ", album=" + album + ", allTags=" + allTags + "]";
+		return "Song [id=" + id + ", songTitle=" + songTitle + ", duration=" + duration + ", rating=" + rating
+				+ ", album=" + album + ", songTags=" + songTags + ", songComments=" + songComments + "]";
 	}
+
 
 }

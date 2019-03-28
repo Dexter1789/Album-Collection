@@ -57,17 +57,17 @@ public class ArtistController {
 		return artist;
 	}
 	
-//	@PostMapping("/add")
-//	public Collection<Artist> addArtist(@RequestBody String body) throws JSONException {
-//		JSONObject json = new JSONObject(body);
-//		String artistName = json.getString("artistName");
-//		String artistImage = json.getString("artistImage");
-//		String age = json.getString("age");
-//		String hometown = json.getString("hometown");
-//		String rating = json.getString("rating");
-//		artistRepo.save(new Artist(artistName, artistImage, age, hometown, rating));
-//		return (Collection<Artist>) artistRepo.findAll();
-//	}
+	@PostMapping("/add")
+	public Collection<Artist> addArtist(@RequestBody String body) throws JSONException {
+		JSONObject json = new JSONObject(body);
+		String artistName = json.getString("artistName");
+		String artistImage = json.getString("artistImage");
+		String age = json.getString("age");
+		String hometown = json.getString("hometown");
+		String rating = json.getString("rating");
+		artistRepo.save(new Artist(artistName, artistImage, age, hometown, rating));
+		return (Collection<Artist>) artistRepo.findAll();
+	}
 	
 	@PostMapping("/add/{id}")
 	public Artist addCommentToArtist(@RequestBody String body, @PathVariable Long id) throws JSONException {
