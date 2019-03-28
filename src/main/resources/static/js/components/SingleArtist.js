@@ -8,13 +8,24 @@ export default function SingleArtist(artist) {
     <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
     </header>
 
-    <ul class="artist">
-        <li><img id="${artist.id}" class="artist__image" src="${artist.artistImage}"/></li>
-        <li class="artist__name">${artist.artistName}</li>
-        <li class="artist__age">${artist.age}</li>
-        <li class="artist__hometown">${artist.hometown}</li>
-        <li class="artist__rating">${artist.rating}</li>
-            <ul>
+    <ul class="artist__list">
+        <li>
+            <div class="artist__container">
+                <img id="${artist.id}" class="artist__image" src="${artist.artistImage}" alt="Artist Image"/>
+                <h4 class="artist__name">${artist.artistName}</h4>
+                <h5 class="artist__hometown">${artist.hometown}</h5>
+                <h5 class="artist__rating">${artist.rating}</h5>
+            </div> 
+        </li>
+    </ul>
+
+    // <ul class="artist">
+    //     <li><img id="${artist.id}" class="artist__image" src="${artist.artistImage}"/></li>
+    //     <li class="artist__name">${artist.artistName}</li>
+    //     <li class="artist__age">${artist.age}</li>
+    //     <li class="artist__hometown">${artist.hometown}</li>
+    //     <li class="artist__rating">${artist.rating}</li>
+    //         <ul>
             <li class="artist__albums">${Albums(artist.allAlbums)}</li>
 
        

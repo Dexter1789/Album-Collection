@@ -245,3 +245,99 @@ input {
 }
 
 /*  (5) Artist Page CSS END */
+
+/*  (6) Album Page CSS START */
+
+.album__list {
+  color: white;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.album__container {
+  background-color: rgba(0, 0, 15, 0.9);
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  text-align: center;
+  
+}
+
+.album__container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
+  -1px -1px 1px rgba(255, 255, 255, 0.5), 
+  1px -1px 1px rgba(255, 255, 255, 0.5), 
+  -1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.album__image {
+  height: 200px;
+  width: 200px;
+  margin-bottom: -5px;
+  overflow: hidden;
+}
+
+.album__name {
+  background-color: rgba(0, 0, 15, 0.9);
+  color: white;
+  height: auto;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+  text-align: center;
+  font-family: 'IM Fell English', serif;
+  font-size: 30px;
+}
+
+.album__rating {
+  color: white;
+  font-family: 'IM Fell English', serif;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.add-album {
+  padding-bottom: 120px;
+  padding-top: 20px;
+  padding-left: 12.5%;
+  padding-right: 12.5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+
+input {
+  width: 120px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.add-album__submit {
+  font-family: 'IM Fell English', serif;
+  font-weight: 800;
+  font-size: 20px;
+  width: 120px;
+  height: 30px;
+  background-color: rgba(0, 0, 15, 0.9);
+  color: white;
+  border: none;
+}
+
+.add-album__submit:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
+  -1px -1px 1px rgba(255, 255, 255, 0.5), 
+  1px -1px 1px rgba(255, 255, 255, 0.5), 
+  -1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/*  (6) Album Page CSS END */
