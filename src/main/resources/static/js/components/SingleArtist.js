@@ -1,4 +1,5 @@
 import Albums from './Albums'
+import ArtistComment from './ArtistComment'
 
 export default function SingleArtist(artist) {
     console.log(artist)
@@ -15,9 +16,9 @@ export default function SingleArtist(artist) {
 
        
     </ul>
-    <h3>Comments on this Author</h3>
+    <h3>Comments on this Artist</h3>
     <ul class="artist-comments">
-        <li>${artist.artistComments.content}</li>
+        <li>${ArtistComment(artist.artistComments)}</li>
     </ul>
 
     <section class="add-album">

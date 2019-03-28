@@ -1,3 +1,4 @@
+import ArtistComment from './ArtistComment'
 import Albums from './Albums'
 export default function Artists(artists) {
 
@@ -11,6 +12,7 @@ export default function Artists(artists) {
         return `
         <li><img id="${artist.id}" class="artist__image" src="${artist.artistImage}"/></li>
         <li class="artist__name">${artist.artistName}</li>
+    
         `;
 
     }).join('')}
