@@ -1,9 +1,14 @@
 import SongComments from './SongComment'
 
 export default function Songs(songs) {
-  console.log(songs)
-  return `
-  
+
+    return `
+
+    <header>
+    <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
+    </header>
+  <main class="main__wrapper">
+
   ${songs.map(song => {
     return `
 <div class="main__content">
@@ -19,6 +24,11 @@ export default function Songs(songs) {
 
 
 </main>
+
+<<<<<<< HEAD
+=======
+<footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
+>>>>>>> 07973344a646a8cfa10b3975a77de30c35e7424e
 
 
 `}
