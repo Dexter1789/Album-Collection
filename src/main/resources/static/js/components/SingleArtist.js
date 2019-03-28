@@ -23,6 +23,11 @@ export default function SingleArtist(artist) {
         <button class="add-album__submit" id="${artist.id}">Add Album</button>
     </section>
 
+    <section class="add-comments">
+        <input type="text" class="add-comment__box" placeholder="Leave A Comment">
+        <button class="add-comment__singleArtist" id="${artist.id}">Add Comment</button>
+    </section>
+
 
     <footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
     `;

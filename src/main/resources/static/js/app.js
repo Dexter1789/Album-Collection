@@ -84,6 +84,20 @@ function main() {
         }
         
     })
+    // Adding Comments to Single Artist // 
+    events.on(getAppContext(), 'click', () => {
+        if (event.target.classList.contains('add-comment__singleArtist')) {
+            const content = document.querySelector('.add-comment__box').value
+ 
+    
+            api.postRequest(`/artists/add/${event.target.id}`, {
+              content: content
+
+            }, (artist) => getAppContext().innerHTML = SingleArtist(artist))
+    
+        }
+    
+    })
 }
 
 
