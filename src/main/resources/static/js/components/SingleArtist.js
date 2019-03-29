@@ -23,11 +23,14 @@ export default function SingleArtist(artist) {
             <li class="artist__albums">${Albums(artist.allAlbums)}</li>
 
        
-    </ul>
-    <h3>Comments on this Artist</h3>
-    <ul class="artist-comments">
+
+
+    <div class="comments__container">
+        <h3>Comments on this Artist</h3>
+        <ul class="comments__container__list">
         <li>${ArtistComment(artist.artistComments)}</li>
-    </ul>
+        </ul>
+    </div>
 
     <section class="add-album">
         <input type="text" class="add-album__title" placeholder="Album Title">
