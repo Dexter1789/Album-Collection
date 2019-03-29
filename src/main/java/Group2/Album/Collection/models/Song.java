@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Song {
+	
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -30,18 +31,19 @@ public class Song {
 	private Album album;
 
 	@ManyToMany
-	private Collection<SongTag> songTags;
+	private Collection<Tag> tags;
 
 	@OneToMany(mappedBy="song")
 	private Collection<SongComment> songComments;
 
 	public Song() {}
 
-	public Song(String songTitle, String duration, int rating, Album album) {
+	public Song(String songTitle, String duration, int rating, Album album, Tag ...tags) {
 		this.songTitle = songTitle;
 		this.duration = duration;
 		this.rating = rating;
 		this.album = album;
+		this.tags = Arrays.asList(tags);
 	}
 	
 	public Long getId() {
@@ -65,8 +67,8 @@ public class Song {
 		return album;
 	}
 
-	public Collection<SongTag> getAllTags() {
-		return songTags;
+	public Collection<Tag> getTags() {
+		return tags;
 	}
 
 	public Collection<SongComment> getsongComments() {
@@ -77,17 +79,17 @@ public class Song {
 	public void addComment(Comment comment) {
 		songComments.add((SongComment) comment);
 	}
-	
 	// adding a tag to Song
 	public void addTag(Tag tag) {
-		songTags.add((SongTag) tag);
+		tags.add(tag);
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Song [id=" + id + ", songTitle=" + songTitle + ", duration=" + duration + ", rating=" + rating
-				+ ", album=" + album + ", songTags=" + songTags + ", songComments=" + songComments + "]";
+				+ ", album=" + album + ", tags=" + tags + ", songComments=" + songComments + "]";
 	}
 
+	
 
 }

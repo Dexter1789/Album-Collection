@@ -153,6 +153,51 @@ events.on(getAppContext(), 'click', () => {
 
 })
 
+// Add Tags to Song //
+events.on(getAppContext(), 'click', () => {
+    if (event.target.classList.contains('add-tag__singleSong')) {
+        const content = document.querySelector('.add-tag__box').value
+
+
+        api.postRequest(`/songs/add/tags/${event.target.id}`, {
+          content: content
+
+        }, (song) => getAppContext().innerHTML = SingleSong(song))
+
+    }
+
+})
+
+// Add Tags to Album //
+events.on(getAppContext(), 'click', () => {
+    if (event.target.classList.contains('add-tag__singleAlbum')) {
+        const content = document.querySelector('.add-tag__box').value
+
+
+        api.postRequest(`/albums/add/tags/${event.target.id}`, {
+          content: content
+
+        }, (album) => getAppContext().innerHTML = SingleAlbum(album))
+
+    }
+
+})
+
+// Add Tags to Artist //
+events.on(getAppContext(), 'click', () => {
+    if (event.target.classList.contains('add-tag__singleArtist')) {
+        const content = document.querySelector('.add-tag__box').value
+
+
+        api.postRequest(`/artists/add/tags/${event.target.id}`, {
+          content: content
+
+        }, (artist) => getAppContext().innerHTML = SingleArtist(artist))
+
+    }
+
+})
+
 function addSong() {
     events.on(getAppContext(), 'click', () => {
         if (event.target.classList.contains('add-song__submit')) {

@@ -1,11 +1,16 @@
 package Group2.Album.Collection.models;
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public abstract class Tag {
+public class Tag {
 	
 	@Id
 	@GeneratedValue
@@ -13,6 +18,17 @@ public abstract class Tag {
 	@Lob
 	private String content;
 
+	@ManyToMany (mappedBy="tags")
+	@JsonIgnore
+	private Collection<Artist> artists;
+	
+	@ManyToMany
+	@JsonIgnore
+	private Collection<Album> albums;
+	
+	@ManyToMany
+	@JsonIgnore
+	private Collection<Song> songs;
 	
 	public Tag() {}
 	
@@ -26,6 +42,18 @@ public abstract class Tag {
 	
 	public String getContent() {
 		return content;
+	}
+	
+	public Collection<Artist> getArtists() {
+		return artists;
+	}
+	
+	public Collection<Album> getAlbums() {
+		return albums;
+	}
+	
+	public Collection<Song> getSongs() {
+		return songs;
 	}
 
 	

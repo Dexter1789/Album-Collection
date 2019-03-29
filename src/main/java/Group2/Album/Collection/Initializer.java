@@ -42,7 +42,19 @@ public class Initializer implements CommandLineRunner {
 @Override
 public void run(String... args) throws Exception {
 	
-	Artist artist1 = artistRepo.save(new Artist ("Bob Marley", "https://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg", "Deceased", "Nine Mile, Jamaica", "4"));
+	Tag tag1 = tagRepo.save(new Tag("Rock"));
+//	Tag tag2 = tagRepo.save(new Tag("Jazz"));
+//	Tag tag3 = tagRepo.save(new Tag("Indie"));
+//	Tag tag4 = tagRepo.save(new Tag("Contemporary"));
+	Tag tag5 = tagRepo.save(new Tag("Regae"));
+//	Tag tag6 = tagRepo.save(new Tag("Ska"));
+//	Tag tag7 = tagRepo.save(new Tag("Legend"));
+//	Tag tag8 = tagRepo.save(new Tag("Opera"));
+//	Tag tag9 = tagRepo.save(new Tag("Alt-Rap"));
+//	Tag tag10 = tagRepo.save(new Tag("Hip-Hop"));
+//	Tag tag11 = tagRepo.save(new Tag("Acceptable Pop"));
+	
+	Artist artist1 = artistRepo.save(new Artist ("Bob Marley", "https://cps-static.rovicorp.com/3/JPG_400/MI0003/146/MI0003146038.jpg", "Deceased", "Nine Mile, Jamaica", "4", tag1));
 	Artist artist2 = artistRepo.save(new Artist ("Leontyne Price", "https://upload.wikimedia.org/wikipedia/commons/d/df/Leontyne_Price_%28color%29_by_Jack_Mitchell.jpg", "92", "Laurel, Mississippi", "4"));
 	Artist artist3 = artistRepo.save(new Artist ("Pixies", "https://img.apmcdn.org/7f0e09c9a5c354ce654efe8f38fecd7008970d5b/uncropped/018430-20170220-pixies.jpeg", "various", "Boston", "4"));
 	Artist artist4 = artistRepo.save(new Artist ("Arcade Fire", "https://static.stereogum.com/blogs.dir/2/files/2010/07/af-alt-cover-608x608.jpg", "various", "Quebec", "5"));
@@ -60,7 +72,7 @@ public void run(String... args) throws Exception {
 //	Album album = albumRepo.save(new Album("", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png", , artist, tag, tag));
 	Album album1 = albumRepo.save(new Album("Indie Cindy", "https://media.timeout.com/images/101552041/image.jpg", 3, artist3));
 	Album album2 = albumRepo.save(new Album("The Suburbs", "http://embed.arcadefire.com/artwork/b2.jpg", 4, artist4));	
-	Album album3 = albumRepo.save(new Album("Catch a Fire", "https://img.discogs.com/Iwvxur_DPNMNNMrgdHSXUyWFeVI=/fit-in/600x577/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-416733-1549542237-9463.jpeg.jpg", 5, artist1));
+	Album album3 = albumRepo.save(new Album("Catch a Fire", "https://img.discogs.com/Iwvxur_DPNMNNMrgdHSXUyWFeVI=/fit-in/600x577/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-416733-1549542237-9463.jpeg.jpg", 5, artist1, tag5));
 	Album album4 = albumRepo.save(new Album("Norma", "https://images.shazam.com/coverart/t68910196-b613495094_s400.jpg", 5, artist2));
 	Album album5 = albumRepo.save(new Album("Skelethon", "https://images-na.ssl-images-amazon.com/images/I/81XhL9QHJ2L._SY355_.jpg", 3, artist5));
 	Album album6 = albumRepo.save(new Album("I am... Sasha Fierce", "https://topicimages.mrowl.com/large/katystevens/beyonce/albums/i_amsasha_fierce_1.jpg", 2, artist6));
@@ -76,7 +88,7 @@ public void run(String... args) throws Exception {
 	
 	Song song1 = songRepo.save(new Song ("Indie Cindy ","4:41", 3, album1));
 	Song song2 = songRepo.save(new Song ("Culture War", "5:24", 4, album2));
-	Song song3 = songRepo.save(new Song ("Concrete Jungle", "4:12", 5, album3));
+	Song song3 = songRepo.save(new Song ("Concrete Jungle", "4:12", 5, album3, tag5));
 	Song song4 = songRepo.save(new Song ("Act 1, Casta Diva", "7:19", 5, album4));
 	Song song5 = songRepo.save(new Song ("Leisure Force",  "4:44", 4, album5));
 	Song song6 = songRepo.save(new Song ("Halo", "4:22", 2, album6));
@@ -101,25 +113,6 @@ public void run(String... args) throws Exception {
 	commentRepo.save(new AlbumComment("This is a comment about Album6.", album6));
 	commentRepo.save(new SongComment("This is a comment about Song6.", song6));
 	
-	tagRepo.save(new ArtistTag("Rock", artist1));
-	tagRepo.save(new AlbumTag("Jazz", album1));
-	tagRepo.save(new SongTag("Indie", song1));
-	tagRepo.save(new ArtistTag("Contemporary", artist2));
-	tagRepo.save(new AlbumTag("Regae", album2));
-	tagRepo.save(new SongTag("Ska", song2));
-	tagRepo.save(new ArtistTag("Legend", artist3));
-	tagRepo.save(new AlbumTag("Opera", album3));
-	tagRepo.save(new SongTag("Alt-Rap", song3));
-	tagRepo.save(new ArtistTag("Hip-Hop", artist4));
-	tagRepo.save(new AlbumTag("Acceptable Pop", album4));
-	tagRepo.save(new SongTag("Rock", song4));
-	tagRepo.save(new ArtistTag("Jazz", artist5));
-	tagRepo.save(new AlbumTag("Indie", album5));
-	tagRepo.save(new SongTag("Regae", song5));
-	tagRepo.save(new ArtistTag("Ska", artist6));
-	tagRepo.save(new AlbumTag("Legend", album6));
-	tagRepo.save(new SongTag("Alt-Rap", song6));
-
 	
 
 	

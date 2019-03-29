@@ -11,6 +11,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Artist {
 	
@@ -25,7 +27,7 @@ public class Artist {
 	private String rating;
 	
 	@ManyToMany
-	private Collection<ArtistTag> artistTags;
+	private Collection<Tag> tags;
 	
 	@OneToMany(mappedBy="artist")
 	private Collection<ArtistComment> artistComments;
@@ -35,13 +37,14 @@ public class Artist {
 	
 	public Artist () {}
 
-	public Artist(String artistName, String artistImage, String age, String hometown, String rating) {
+	public Artist(String artistName, String artistImage, String age, String hometown, String rating, Tag ...tags) {
 		this.artistName = artistName;
 		this.artistImage = artistImage;
 		this.age = age;
 		this.hometown = hometown;
 		this.rating = rating;
 		this.allAlbums = new ArrayList<Album>();
+		this.tags = Arrays.asList(tags);
 	} 
 	
 	public Long getId() {
@@ -68,8 +71,8 @@ public class Artist {
 		return rating;
 	}
 
-	public Collection<ArtistTag> getArtistTags() {
-		return artistTags;
+	public Collection<Tag> getTags() {
+		return tags;
 	}
 
 	public Collection<ArtistComment> getArtistComments() {
@@ -83,7 +86,7 @@ public class Artist {
 	
 	// adding a tag to Artist
 	public void addTag(Tag tag) {
-		artistTags.add((ArtistTag) tag);
+		tags.add(tag);
 	}
 
 	public Collection<Album> getAllAlbums() {
@@ -97,9 +100,8 @@ public class Artist {
 	@Override
 	public String toString() {
 		return "Artist [id=" + id + ", artistName=" + artistName + ", artistImage=" + artistImage + ", age=" + age
-				+ ", hometown=" + hometown + ", rating=" + rating + ", artistTags=" + artistTags + ", artistComments="
+				+ ", hometown=" + hometown + ", rating=" + rating + ", tags=" + tags + ", artistComments="
 				+ artistComments + ", allAlbums=" + allAlbums + "]";
 	}
-
 	
 }

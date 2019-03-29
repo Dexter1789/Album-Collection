@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import Group2.Album.Collection.models.Album;
 import Group2.Album.Collection.models.Artist;
 import Group2.Album.Collection.models.ArtistComment;
+import Group2.Album.Collection.models.Tag;
 import Group2.Album.Collection.repositories.AlbumRepository;
 import Group2.Album.Collection.repositories.ArtistRepository;
 import Group2.Album.Collection.repositories.CommentRepository;
+import Group2.Album.Collection.repositories.TagRepository;
 
 @RestController
 @RequestMapping("/artists")
@@ -32,6 +34,9 @@ public class ArtistController {
 	
 	@Resource
 	AlbumRepository albumRepo;
+	
+	@Resource
+	TagRepository tagRepo;
 
 	@GetMapping("")
 	public Collection<Artist> getAllArtists() {
@@ -79,6 +84,19 @@ public class ArtistController {
 		artist.addComment(commentToAdd);
 		artistRepo.save(artist);
 		return artist;
+	}
+		
+	@PostMapping("/add/tags/{id}")
+	public Artist addTagToArtist(@RequestBody String body, @PathVariable Long id) throws JSONException {
+		JSONObject json = new JSONObject(body);
+		String content = json.getString("content");
+		Artist artist = artistRepo.findById(id).get();
+		Tag tagToAdd = new Tag(content);
+		tagRepo.save(tagToAdd);
+		artist.addTag(tagToAdd);
+		artistRepo.save(artist);
+		return artist;
+	}
 	
 //	@PostMapping("/comments/add")
 //	public Collection<Artist> addArtistComment(@RequestBody String body) throws JSONException {
@@ -88,5 +106,5 @@ public class ArtistController {
 //		commentRepo.save(new ArtistComment(artistCommentContent, artist));
 //		return (Collection<Artist>) artistRepo.findAll();
 //	}
-}
+
 }

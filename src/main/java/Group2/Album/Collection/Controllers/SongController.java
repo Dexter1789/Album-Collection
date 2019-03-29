@@ -17,10 +17,12 @@ import Group2.Album.Collection.models.Album;
 import Group2.Album.Collection.models.Artist;
 import Group2.Album.Collection.models.Song;
 import Group2.Album.Collection.models.SongComment;
+import Group2.Album.Collection.models.Tag;
 import Group2.Album.Collection.repositories.AlbumRepository;
 import Group2.Album.Collection.repositories.ArtistRepository;
 import Group2.Album.Collection.repositories.CommentRepository;
 import Group2.Album.Collection.repositories.SongRepository;
+import Group2.Album.Collection.repositories.TagRepository;
 
 @RestController
 @RequestMapping("/songs")
@@ -37,6 +39,9 @@ public class SongController {
 
 	@Resource
 	CommentRepository commentRepo;
+	
+	@Resource
+	TagRepository tagRepo;
 	
 	@GetMapping("")
 	public Collection<Song> getAllSongs() {
@@ -56,6 +61,18 @@ public class SongController {
 		SongComment commentToAdd = new SongComment(content, song);
 		commentRepo.save(commentToAdd);
 		song.addComment(commentToAdd);
+		songRepo.save(song);
+		return song;
+	}
+	
+	@PostMapping("/add/tags/{id}")
+	public Song addTagToSong(@RequestBody String body, @PathVariable Long id) throws JSONException {
+		JSONObject json = new JSONObject(body);
+		String content = json.getString("content");
+		Song song = songRepo.findById(id).get();
+		Tag tagToAdd = new Tag(content);
+		tagRepo.save(tagToAdd);
+		song.addTag(tagToAdd);
 		songRepo.save(song);
 		return song;
 	}

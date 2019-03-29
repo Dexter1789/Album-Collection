@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,10 +18,12 @@ import Group2.Album.Collection.models.Album;
 import Group2.Album.Collection.models.AlbumComment;
 import Group2.Album.Collection.models.Artist;
 import Group2.Album.Collection.models.Song;
+import Group2.Album.Collection.models.Tag;
 import Group2.Album.Collection.repositories.AlbumRepository;
 import Group2.Album.Collection.repositories.ArtistRepository;
 import Group2.Album.Collection.repositories.CommentRepository;
 import Group2.Album.Collection.repositories.SongRepository;
+import Group2.Album.Collection.repositories.TagRepository;
 
 @RestController
 @RequestMapping("/albums")
@@ -37,6 +40,9 @@ public class AlbumController {
 	
 	@Resource
 	SongRepository songRepo;
+	
+	@Resource
+	TagRepository tagRepo;
 
 	@GetMapping("")
 	public Collection<Album> getAllAlbums() {
@@ -84,4 +90,16 @@ public class AlbumController {
 		albumRepo.save(album);
 		return album;
 }
+	
+	@PostMapping("/add/tags/{id}")
+	public Album addTagToAlbum(@RequestBody String body, @PathVariable Long id) throws JSONException {
+		JSONObject json = new JSONObject(body);
+		String content = json.getString("content");
+		Album album = albumRepo.findById(id).get();
+		Tag tagToAdd = new Tag(content);
+		tagRepo.save(tagToAdd);
+		album.addTag(tagToAdd);
+		albumRepo.save(album);
+		return album;
+	}
 }
