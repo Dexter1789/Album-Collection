@@ -138,7 +138,7 @@ public void run(String... args) throws Exception {
 	commentRepo.save(new SongComment("This is a comment about Song5.", song5));
 	commentRepo.save(new ArtistComment("This is a comment about Artist6.", artist6));
 	commentRepo.save(new AlbumComment("This is a comment about Album6.", album6));
-	commentRepo.save(new SongComment("This is a comment about Song6.", song6));
+	commentRepo.save(new SongComment("I loved this song before anyone else ever heard of it!", song7));
 	
 	
 
