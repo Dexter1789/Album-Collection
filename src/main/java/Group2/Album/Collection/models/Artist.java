@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Artist {
@@ -18,46 +19,40 @@ public class Artist {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String firstName;
-	private String lastName;
+	private String artistName;
+	@Lob
 	private String artistImage;
 	private String age;
 	private String hometown;
-	private int rating;
+	private String rating;
 	
 	@ManyToMany
-	private Collection<Tag> allTags;
+	private Collection<Tag> tags;
 	
-	@ElementCollection
-	@CollectionTable
-	private Collection<Comment> allComments;
+	@OneToMany(mappedBy="artist")
+	private Collection<ArtistComment> artistComments;
 	
 	@OneToMany
 	private Collection<Album> allAlbums;
 	
 	public Artist () {}
 
-	public Artist(String firstName, String lastName, String artistImage, String age, String hometown, int rating, Tag ...allTags) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+	public Artist(String artistName, String artistImage, String age, String hometown, String rating, Tag ...tags) {
+		this.artistName = artistName;
 		this.artistImage = artistImage;
 		this.age = age;
 		this.hometown = hometown;
-		this.allTags = Arrays.asList(allTags);
-		this.allComments = new ArrayList<Comment>();
+		this.rating = rating;
 		this.allAlbums = new ArrayList<Album>();
+		this.tags = Arrays.asList(tags);
 	} 
 	
 	public Long getId() {
 		return id;
 	}
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
+	public String getArtistName() {
+		return artistName;
 	}
 
 	public String getArtistImage() {
@@ -72,26 +67,26 @@ public class Artist {
 		return hometown;
 	}
 
-	public int getRating() {
+	public String getRating() {
 		return rating;
 	}
 
-	public Collection<Tag> getAllTags() {
-		return allTags;
+	public Collection<Tag> getTags() {
+		return tags;
 	}
 
-	public Collection<Comment> getAllComments() {
-		return allComments;
+	public Collection<ArtistComment> getArtistComments() {
+		return artistComments;
 	}
 
 	// adding a comment to Artist
 	public void addComment(Comment comment) {
-			allComments.add(comment);
+			artistComments.add((ArtistComment) comment);
 	}
 	
 	// adding a tag to Artist
 	public void addTag(Tag tag) {
-		allTags.add(tag);
+		tags.add(tag);
 	}
 
 	public Collection<Album> getAllAlbums() {
@@ -104,10 +99,9 @@ public class Artist {
 
 	@Override
 	public String toString() {
-		return "Artist [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", artistImage="
-				+ artistImage + ", age=" + age + ", hometown=" + hometown + ", rating=" + rating + ", allTags="
-				+ allTags + ", allComments=" + allComments + ", allAlbums=" + allAlbums + "]";
+		return "Artist [id=" + id + ", artistName=" + artistName + ", artistImage=" + artistImage + ", age=" + age
+				+ ", hometown=" + hometown + ", rating=" + rating + ", tags=" + tags + ", artistComments="
+				+ artistComments + ", allAlbums=" + allAlbums + "]";
 	}
-
 	
 }

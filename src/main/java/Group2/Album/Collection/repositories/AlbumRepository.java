@@ -8,4 +8,7 @@ import Group2.Album.Collection.models.Album;
 @Repository
 public interface  AlbumRepository extends CrudRepository<Album, Long>{
 
+	Album findByAlbumTitle(String string);
+
+
 }
