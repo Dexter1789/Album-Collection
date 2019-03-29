@@ -6,7 +6,8 @@ export default function SingleArtist(artist) {
   
     return `
     <header>
-    <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
+        <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
+        <a href="index.html"><button class="menu__button"><i class="fa fa-bars"></i></button></a>
     </header>
 
     <ul class="artist__list">

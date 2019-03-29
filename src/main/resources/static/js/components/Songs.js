@@ -4,9 +4,11 @@ export default function Songs(songs) {
 
     return `
 
-    <header>
+    
+  <header>
     <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
-    </header>
+    <a href="index.html"><button class="menu__button"><i class="fa fa-bars"></i></button></a>
+  </header> 
   <main class="main__wrapper">
 
   ${songs.map(song => {
@@ -25,10 +27,7 @@ export default function Songs(songs) {
 
 </main>
 
-<<<<<<< HEAD
-=======
 <footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 
->>>>>>> 07973344a646a8cfa10b3975a77de30c35e7424e
 
 
 `}
