@@ -72,26 +72,53 @@ public void run(String... args) throws Exception {
 //	Album album = albumRepo.save(new Album("", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png", , artist, tag, tag));
 	Album album1 = albumRepo.save(new Album("Indie Cindy", "https://media.timeout.com/images/101552041/image.jpg", 3, artist3));
 	Album album2 = albumRepo.save(new Album("The Suburbs", "http://embed.arcadefire.com/artwork/b2.jpg", 4, artist4));	
-	Album album3 = albumRepo.save(new Album("Catch a Fire", "https://img.discogs.com/Iwvxur_DPNMNNMrgdHSXUyWFeVI=/fit-in/600x577/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-416733-1549542237-9463.jpeg.jpg", 5, artist1, tag5));
+//	Album album3 = albumRepo.save(new Album("Catch a Fire", "https://img.discogs.com/Iwvxur_DPNMNNMrgdHSXUyWFeVI=/fit-in/600x577/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-416733-1549542237-9463.jpeg.jpg", 5, artist1, tag5));
 	Album album4 = albumRepo.save(new Album("Norma", "https://images.shazam.com/coverart/t68910196-b613495094_s400.jpg", 5, artist2));
 	Album album5 = albumRepo.save(new Album("Skelethon", "https://images-na.ssl-images-amazon.com/images/I/81XhL9QHJ2L._SY355_.jpg", 3, artist5));
 	Album album6 = albumRepo.save(new Album("I am... Sasha Fierce", "https://topicimages.mrowl.com/large/katystevens/beyonce/albums/i_amsasha_fierce_1.jpg", 2, artist6));
 	Album album7 = albumRepo.save(new Album("Joy as an Act of Resistance", "https://upload.wikimedia.org/wikipedia/en/e/e4/Idles-Joy_as_an_Act_of_Resistance.jpg",7, artist7));
 	Album album8 = albumRepo.save(new Album("Every Thing Is Love", "https://static.stereogum.com/uploads/2018/06/Beyonce-and-Jay-Z-Everything-Is-Love-1529336950-640x640.jpg", 8, artist8));
-	Album album9 = albumRepo.save(new Album("Snail Mail", "https://f4.bcbits.com/img/a0559333599_10.jpg", 9, artist9));
+//	Album album9 = albumRepo.save(new Album("Snail Mail", "https://f4.bcbits.com/img/a0559333599_10.jpg", 9, artist9));
 	Album album10 = albumRepo.save(new Album("Blueprint", "https://media.pitchfork.com/photos/5ab160c41e037771e6b2fb68/1:1/w_320/Alice%20Bag%20Blueprint.jpg", 10, artist10));
 	Album album11 = albumRepo.save(new Album("Magus", "https://f4.bcbits.com/img/0013738366_10.jpg", 11, artist11));
 	Album album12 = albumRepo.save(new Album("Snowy Egret, The Other Side of Air", "https://images-na.ssl-images-amazon.com/images/I/91ewoLBzJLL._SX355_.jpg", 12, artist12));
 	Album album13 = albumRepo.save(new Album("Future Me Hates Me", "https://img.discogs.com/4TEI9bPcZrpwutDW28b_Nf9Oj_c=/fit-in/600x594/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-12368548-1533844458-4834.jpeg.jpg", 13, artist13));
 	Album album14 = albumRepo.save(new Album("FM", "https://static.stereogum.com/uploads/2018/11/Vince-Staples-FM-1541448359-640x640.jpg", 14, artist14));
 	
+	Album album15 = albumRepo.save(new Album("Talkin' Blues", "https://img.discogs.com/9Z8sRf1femQy4Mq5opXn27gLNTo=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-857574-1434626922-5046.jpeg.jpg", 10, artist1, tag5));
+	Album album16 = albumRepo.save(new Album("Natty Dread", "https://img.discogs.com/DYHco8Wue5ibEqNNgDepNPBPwZA=/fit-in/480x475/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-557836-1141752582.jpeg.jpg", 11, artist1, tag5));
+	Album album17 = albumRepo.save(new Album("Legend", "http://static1.squarespace.com/static/5311d009e4b08cb688151314/56e34c0d27d4bdfdac7a9f4d/56fa8fa8d210b86f7ac2dc9b/1546013168039/Bob_Marley_-_Legend.jpg", 12, artist1, tag5));
+	Album album18 = albumRepo.save(new Album("GOLD", "https://cdn3.volusion.com/rkfzh.yaufw/v/vspfiles/photos/B0004008.2-2.jpg?1383263654", 13, artist1, tag5));
+	Album album19 = albumRepo.save(new Album("Rebel Music", "https://img.discogs.com/9-PzIoIygKONV0R5c5ogUPC_FpQ=/fit-in/600x598/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-6418177-1418722626-4030.jpeg.jpg", 14, artist1, tag5));
+	
+	Album album20 = albumRepo.save(new Album("lovelife", "https://img.discogs.com/ZhHCSazts7WOaauwiqUjMrlm8w0=/fit-in/600x612/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-607737-1484681641-8712.jpeg.jpg", 10, artist9, tag1));
+	Album album21 = albumRepo.save(new Album("Spooky", "https://img.discogs.com/hVSG14VrHk_dHNtHFm6C8dLn2UQ=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-388489-1495482918-2958.jpeg.jpg", 11, artist9, tag1));
+	Album album22 = albumRepo.save(new Album("Split", "https://cps-static.rovicorp.com/3/JPG_500/MI0001/684/MI0001684200.jpg?partner=allrovi.com", 12, artist9, tag1));
+	Album album23 = albumRepo.save(new Album("Scar", "https://someofmyrecords.files.wordpress.com/2013/05/wpid-imag0528_1.jpg", 13, artist9, tag1));
+	Album album24 = albumRepo.save(new Album("Gala", "http://g-ecx.images-amazon.com/images/G/01/ciu/7a/24/0081b2c008a01daed77a8010.L.jpg", 14, artist9, tag1));
+	
 	
 	Song song1 = songRepo.save(new Song ("Indie Cindy ","4:41", 3, album1));
 	Song song2 = songRepo.save(new Song ("Culture War", "5:24", 4, album2));
-	Song song3 = songRepo.save(new Song ("Concrete Jungle", "4:12", 5, album3, tag5));
+//	Song song3 = songRepo.save(new Song ("Concrete Jungle", "4:12", 5, album3, tag5));
 	Song song4 = songRepo.save(new Song ("Act 1, Casta Diva", "7:19", 5, album4));
 	Song song5 = songRepo.save(new Song ("Leisure Force",  "4:44", 4, album5));
 	Song song6 = songRepo.save(new Song ("Halo", "4:22", 2, album6));
+	
+	Song song7 = songRepo.save(new Song ("Talkin' Blues","4:38", 3, album15, tag5));
+	Song song8 = songRepo.save(new Song ("Burnin' and Lootin'", "6:36", 4, album15, tag5));
+	Song song9 = songRepo.save(new Song ("Kinky Reggae", "5:08", 5, album15, tag5));
+	Song song10 = songRepo.save(new Song ("Get Up Stand Up", "4:44", 5, album15, tag5));
+	Song song11 = songRepo.save(new Song ("Slave Driver",  "3:47", 4, album15, tag5));
+	Song song12 = songRepo.save(new Song ("Walk the Land Proud", "3:30", 2, album15, tag5));
+	
+	
+	Song song13 = songRepo.save(new Song ("Ladykillers","3:13", 3, album20, tag1));
+	Song song14 = songRepo.save(new Song ("Heavenly Nobodies", "2:15", 4, album20, tag1));
+	Song song15 = songRepo.save(new Song ("500 (Shake Baby Shake)", "3:30", 5, album20, tag1));
+	Song song16 = songRepo.save(new Song ("I've Been Here Before", "4:36", 5, album20, tag1));
+	Song song17 = songRepo.save(new Song ("Papasan",  "2:36", 4, album20, tag1));
+	Song song18 = songRepo.save(new Song ("Single Girl", "2:35", 2, album20, tag1));
 	
 	
 	commentRepo.save(new ArtistComment("This is a comment about Artist1.", artist1));
@@ -101,8 +128,8 @@ public void run(String... args) throws Exception {
 	commentRepo.save(new AlbumComment("This is a comment about Album2.", album2));
 	commentRepo.save(new SongComment("This is a comment about Song2.", song2));
 	commentRepo.save(new ArtistComment("This is a comment about Artist3.", artist3));
-	commentRepo.save(new AlbumComment("This is a comment about Album3.", album3));
-	commentRepo.save(new SongComment("This is a comment about Song3.", song3));
+//	commentRepo.save(new AlbumComment("This is a comment about Album3.", album3));
+//	commentRepo.save(new SongComment("This is a comment about Song3.", song3));
 	commentRepo.save(new ArtistComment("This is a comment about Artist4.", artist4));
 	commentRepo.save(new AlbumComment("This is a comment about Album4.", album4));
 	commentRepo.save(new SongComment("This is a comment about Song4.", song4));
@@ -120,44 +147,81 @@ public void run(String... args) throws Exception {
 //	album1.addComment(comment1);
 	album1.addSong(song1);
 	album2.addSong(song2);
-	album3.addSong(song3);
+//	album3.addSong(song3);
 	album4.addSong(song4);
 	album5.addSong(song5);
 	album6.addSong(song6);
 	
+	album15.addSong(song7);
+	album15.addSong(song8);
+	album15.addSong(song9);
+	album15.addSong(song10);
+	album15.addSong(song11);
+	album15.addSong(song12);
+	
+	album20.addSong(song13);
+	album20.addSong(song14);
+	album20.addSong(song15);
+	album20.addSong(song16);
+	album20.addSong(song17);
+	album20.addSong(song18);
 	
 	
 	
 	albumRepo.save(album1);
 	albumRepo.save(album2);
-	albumRepo.save(album3);
+//	albumRepo.save(album3);
 	albumRepo.save(album4);
 	albumRepo.save(album5);
 	albumRepo.save(album6);
 	albumRepo.save(album7);
 	albumRepo.save(album8);
-	albumRepo.save(album9);
+//	albumRepo.save(album9);
 	albumRepo.save(album10);
 	albumRepo.save(album11);
 	albumRepo.save(album12);
 	albumRepo.save(album13);
 	albumRepo.save(album14);
+	albumRepo.save(album15);
+	albumRepo.save(album16);
+	albumRepo.save(album17);
+	albumRepo.save(album18);
+	albumRepo.save(album19);
+	albumRepo.save(album20);
+	albumRepo.save(album21);
+	albumRepo.save(album22);
+	albumRepo.save(album23);
+	albumRepo.save(album24);
 	
 //	artist1.addComment(comment2);
 	artist3.addAlbum(album1);
 	artist4.addAlbum(album2);
-	artist1.addAlbum(album3);
+//	artist1.addAlbum(album3);
 	artist2.addAlbum(album4);
 	artist5.addAlbum(album5);
 	artist6.addAlbum(album6);
 	artist7.addAlbum(album7);
 	artist8.addAlbum(album8);
-	artist9.addAlbum(album9);
+//	artist9.addAlbum(album9);
 	artist10.addAlbum(album10);
 	artist11.addAlbum(album11);
 	artist12.addAlbum(album12);
 	artist13.addAlbum(album13);
 	artist14.addAlbum(album14);
+	
+	artist1.addAlbum(album15);
+	artist1.addAlbum(album16);
+	artist1.addAlbum(album17);
+	artist1.addAlbum(album18);
+	artist1.addAlbum(album19);
+	
+	artist9.addAlbum(album20);
+	artist9.addAlbum(album21);
+	artist9.addAlbum(album22);
+	artist9.addAlbum(album23);
+	artist9.addAlbum(album24);
+	
+	
 	
 	artistRepo.save(artist1);
 	artistRepo.save(artist2);
@@ -178,9 +242,21 @@ public void run(String... args) throws Exception {
 //	song1.addComment(comment4);
 	songRepo.save(song1);
 	songRepo.save(song2);
-	songRepo.save(song3);
+//	songRepo.save(song3);
 	songRepo.save(song4);
 	songRepo.save(song5);
 	songRepo.save(song6);
+	songRepo.save(song7);
+	songRepo.save(song8);
+	songRepo.save(song9);
+	songRepo.save(song10);
+	songRepo.save(song11);
+	songRepo.save(song12);
+	songRepo.save(song13);
+	songRepo.save(song14);
+	songRepo.save(song15);
+	songRepo.save(song16);
+	songRepo.save(song17);
+	songRepo.save(song18);
 	
 }}
