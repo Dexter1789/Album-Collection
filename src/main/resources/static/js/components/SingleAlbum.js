@@ -3,24 +3,27 @@ import AlbumComment from './AlbumComment'
 
 export default function SingleAlbum(album) {
     return `
-    
-    <ul class="album">
-        <li><img id="${album.id}" class="album__image" src="${album.albumImage}"/></li>
-        <li class="album__title">${album.albumTitle}</li>
-        <li class="album__rating">${album.rating}</li>
-      
-            <ul>
-            <li class="album__songs">${Songs(album.allSongs)}</li>
 
+    <ul class="singlealbum__list">
+        <li>
+            <div class="singlealbum__container2">
+                <img id="${album.id}" class="singlealbum__image2" src="${album.albumImage}" alt="Artist Image"/>
+                <h4 class="singlealbum__name2">${album.albumTitle}</h4>
+                <h5 class="singlealbum__rating">Rating: ${album.rating}</h5>
+            </div> 
+        </li>
+    </ul>
+
+            <li class="singlealbum__songs">${Songs(album.allSongs)}</li>
        
-    </ul>
 
-   
-    <h3>Comments on this Album</h3>
-    <ul class="album-comments">
+
+    <div class="comments__container">
+        <h3>Comments on this Album</h3>
+        <ul class="comments__container__list">
         <li>${AlbumComment(album.albumComments)}</li>
-    </ul>
-
+        </ul>
+    </div>
 
     <section class="add-song">
         <input type="text" class="add-song__title" placeholder="Song Title">
