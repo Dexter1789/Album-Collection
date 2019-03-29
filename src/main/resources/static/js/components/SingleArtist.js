@@ -21,11 +21,7 @@ export default function SingleArtist(artist) {
         </li>
     </ul>
 
-
-            <li class="artist__albums">${Albums(artist.allAlbums)}</li>
-
-       
-
+        <li class="artist__albums">${Albums(artist.allAlbums)}</li>
 
     <div class="comments__container">
         <h3>Comments on this Artist</h3>
@@ -35,12 +31,11 @@ export default function SingleArtist(artist) {
     </div>
 
     <div class="tags__container">
-    <h3>Tagged with: </h3>
-    <ul class="artist-tags">
-        <li>${Tags(artist.tags)}</li>
-    </ul>
+        <h3>Tagged with: </h3>
+        <ul class="artist-tags">
+            <li>${Tags(artist.tags)}</li>
+        </ul>
     </div>
-
 
     <section class="add-album">
         <input type="text" class="add-album__title" placeholder="Album Title">

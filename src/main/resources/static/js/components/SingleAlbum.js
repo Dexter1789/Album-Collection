@@ -4,6 +4,10 @@ import Tags from './Tags'
 
 export default function SingleAlbum(album) {
     return `
+    <header>
+        <a href="index.html"><img class="logo" src="https://raw.githubusercontent.com/nate-fritz/nate-fritz.github.io/master/static/media/white-logo-no-bg.png"></a>
+        <a href="index.html"><button class="menu__button"><i class="fa fa-bars"></i></button></a>
+    </header>
 
     <ul class="singlealbum__list">
         <li>
@@ -12,17 +16,24 @@ export default function SingleAlbum(album) {
                 <h4 class="singlealbum__name2">${album.albumTitle}</h4>
                 <h5 class="singlealbum__rating">Rating: ${album.rating}</h5>
             </div> 
-        </li>
+        </li>   
     </ul>
 
-            <li class="singlealbum__songs">${Songs(album.allSongs)}</li>
-       
+  
+                <li class="singlealbum__songs">${Songs(album.allSongs)}</li>
 
 
     <div class="comments__container">
         <h3>Comments on this Album</h3>
         <ul class="comments__container__list">
-        <li>${AlbumComment(album.albumComments)}</li>
+            <li>${AlbumComment(album.albumComments)}</li>
+        </ul>
+    </div>
+
+    <div class="tags__container">
+        <h3>Tagged with: </h3>
+        <ul class="album-tags">
+            <li>${Tags(album.tags)}</li>
         </ul>
     </div>
 

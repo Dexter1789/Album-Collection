@@ -13,14 +13,10 @@ export default function Albums(albums) {
       <li>
         <div class="album__container">
             <img src="${album.albumImage}" class="album__image" id="${album.id}">
-        
             <h2 class="album__name">${album.albumTitle}</h2>
-            <p class="album__rating">Rating: ${album.rating}</p>
-          
+            <p class="album__rating">Rating: ${album.rating}</p> 
         </div>
       </li>
-              
- 
       `;
       
     }).join('')}
