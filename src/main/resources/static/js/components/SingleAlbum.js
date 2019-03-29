@@ -1,5 +1,6 @@
 import Songs from './Songs'
 import AlbumComment from './AlbumComment'
+import Tags from './Tags'
 
 export default function SingleAlbum(album) {
     return `
@@ -35,6 +36,11 @@ export default function SingleAlbum(album) {
     <section class="add-comments">
         <input type="text" class="add-comment__box" placeholder="Leave A Comment">
         <button class="add-comment__singleAlbum" id="${album.id}">Add Comment</button>
+    </section>
+
+    <section class="add-tags">
+        <input type="text" class="add-tag__box" placeholder="Tag">
+        <button class="add-tag__singleAlbum" id="${album.id}">Add Tag</button>
     </section>
 
     <footer>Before They Sold Out: A Hipster Music Collection © 2019</footer> 

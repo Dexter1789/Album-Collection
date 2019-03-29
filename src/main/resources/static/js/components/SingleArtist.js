@@ -1,5 +1,6 @@
 import Albums from './Albums'
 import ArtistComment from './ArtistComment'
+import Tags from './Tags'
 
 export default function SingleArtist(artist) {
   
@@ -33,6 +34,14 @@ export default function SingleArtist(artist) {
         </ul>
     </div>
 
+    <div class="tags__container">
+    <h3>Tagged with: </h3>
+    <ul class="artist-tags">
+        <li>${Tags(artist.tags)}</li>
+    </ul>
+    </div>
+
+
     <section class="add-album">
         <input type="text" class="add-album__title" placeholder="Album Title">
         <input type="text" class="add-album__image" placeholder="Album Image">
@@ -43,6 +52,11 @@ export default function SingleArtist(artist) {
     <section class="add-comments">
         <input type="text" class="add-comment__box" placeholder="Leave A Comment">
         <button class="add-comment__singleArtist" id="${artist.id}">Add Comment</button>
+    </section>
+
+    <section class="add-tags">
+        <input type="text" class="add-tag__box" placeholder="Tag">
+        <button class="add-tag__singleArtist" id="${artist.id}">Add Tag</button>
     </section>
 
 
