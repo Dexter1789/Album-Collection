@@ -166,7 +166,8 @@ footer {
 
 /*  (5) Artist Page CSS START */
 
-.artist__list {
+.artist__list, 
+.singlealbum__list {
   padding-top: 80px;
   color: white;
   flex-wrap: wrap;
@@ -192,7 +193,8 @@ footer {
   -1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
-.artist__container2 {
+.artist__container2, 
+.singlealbum__container2 {
   display: flex;
   flex-direction: column;
   margin: 20px;
@@ -208,7 +210,8 @@ footer {
   overflow: hidden;
 }
 
-.artist__image2 {
+.artist__image2,
+.singlealbum__image2 {
   height: 350px;
   width: 350px;
   margin-bottom: -5px;
@@ -226,7 +229,8 @@ footer {
   font-size: 30px;
 }
 
-.artist__name2 {
+.artist__name2,
+.singlealbum__name2{
   height: 60px;
   width: 350px;
   display: flex;
@@ -242,10 +246,21 @@ footer {
   font-size: 20px;
 }
 
-.artist__rating {
+.artist__rating,
+.singlealbum__rating {
   font-family: 'IM Fell English', serif;
   font-size: 20px;
   padding: 10px
+}
+
+.singlealbum__songs {
+  font-family: 'IM Fell English', serif;
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 15, 0.9);
+  width: 350px;
 }
 
 .add-artist {
@@ -366,6 +381,29 @@ input {
   -1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
+.add-tag__box {
+  width: 20%;
+}
+
+.add-tag__singleArtist {
+  font-family: 'IM Fell English', serif;
+  font-weight: 800;
+  font-size: 20px;
+  width: 150px;
+  height: 30px;
+  background-color: rgba(0, 0, 15, 0.9);
+  color: white;
+  border: none;
+}
+
+.add-tag__singleArtist:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
+  -1px -1px 1px rgba(255, 255, 255, 0.5), 
+  1px -1px 1px rgba(255, 255, 255, 0.5), 
+  -1px 1px 1px rgba(255, 255, 255, 0.5);
+}
 
 .comments__container {
   background-color: rgba(0, 0, 15, 0.9);
@@ -378,8 +416,29 @@ input {
   flex-direction: column;
   justify-content: space-around;
 }
+.tags__container {
+  background-color: rgba(0, 0, 15, 0.9);
+  color: white;
+  padding: 20px;
+  margin-left: 45%;
+  margin-right: 45%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 
-.add-album {
+.artist-tags {
+  padding-top: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+.add-album,
+.add-song {
   padding-bottom: 20px;
   padding-top: 20px;
   padding-left: 20%;
@@ -390,6 +449,15 @@ input {
 }
 
 .add-comments {
+  padding-top: 20px;
+  padding-left: 20%;
+  padding-right: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.add-tags {
   padding-bottom: 120px;
   padding-top: 20px;
   padding-left: 20%;
