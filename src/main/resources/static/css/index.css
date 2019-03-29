@@ -167,13 +167,20 @@ footer {
 /*  (5) Artist Page CSS START */
 
 .artist__list, 
-.singlealbum__list {
+.singlealbum__list,
+.album__list,
+.song__list {
   padding-top: 80px;
   color: white;
   flex-wrap: wrap;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.song__list {
+  margin-left: 45%;
+  margin-right: 45%;
 }
 
 .artist__container {
@@ -194,7 +201,8 @@ footer {
 }
 
 .artist__container2, 
-.singlealbum__container2 {
+.singlealbum__container2,
+.song__container2 {
   display: flex;
   flex-direction: column;
   margin: 20px;
@@ -246,21 +254,15 @@ footer {
   font-size: 20px;
 }
 
+.album__rating,
 .artist__rating,
-.singlealbum__rating {
+.singlealbum__rating,
+.song__rating {
   font-family: 'IM Fell English', serif;
   font-size: 20px;
-  padding: 10px
-}
-
-.singlealbum__songs {
-  font-family: 'IM Fell English', serif;
-  text-align: center;
-  color: white;
-  margin-top: 10px;
+  padding: 10px;
   margin-bottom: 20px;
-  background-color: rgba(0, 0, 15, 0.9);
-  width: 350px;
+  color: white;
 }
 
 .add-artist {
@@ -311,16 +313,20 @@ input {
   justify-content: center;
 }
 
-.album__container {
+
+.album__container,
+.song__container {
   background-color: rgba(0, 0, 15, 0.9);
   display: flex;
   flex-direction: column;
   margin: 20px;
   text-align: center;
-
 }
 
-.album__container:hover {
+
+
+.album__container:hover,
+.song__container:hover {
   cursor: pointer;
   transform: scale(1.1);
   box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
@@ -350,18 +356,27 @@ input {
   font-size: 30px;
 }
 
-.album__rating {
+.song__title {
   color: white;
+  height: auto;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+  text-align: center;
   font-family: 'IM Fell English', serif;
-  font-size: 20px;
-  padding-bottom: 5px;
+  font-size: 30px;
 }
+
 
 .add-comment__box {
   width: 60%;
 }
 
-.add-comment__singleArtist {
+.add-comment__singleArtist,
+.add-comment__singleAlbum,
+.add-comment__singleSong {
   font-family: 'IM Fell English', serif;
   font-weight: 800;
   font-size: 20px;
@@ -372,7 +387,9 @@ input {
   border: none;
 }
 
-.add-comment__singleArtist:hover {
+.add-comment__singleArtist:hover,
+.add-comment__singleAlbum:hover,
+.add-comment__singleSong:hover {
   cursor: pointer;
   transform: scale(1.1);
   box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
@@ -385,7 +402,9 @@ input {
   width: 20%;
 }
 
-.add-tag__singleArtist {
+.add-tag__singleArtist,
+.add-tag__singleAlbum,
+.add-tag__singleSong {
   font-family: 'IM Fell English', serif;
   font-weight: 800;
   font-size: 20px;
@@ -396,7 +415,9 @@ input {
   border: none;
 }
 
-.add-tag__singleArtist:hover {
+.add-tag__singleArtist:hover,
+.add-tag__singleAlbum:hover,
+.add-tag__singleSong:hover {
   cursor: pointer;
   transform: scale(1.1);
   box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
@@ -473,7 +494,8 @@ input {
   margin-bottom: 10px;
 }
 
-.add-album__submit {
+.add-album__submit,
+.add-song__submit {
   font-family: 'IM Fell English', serif;
   font-weight: 800;
   font-size: 20px;
@@ -484,7 +506,8 @@ input {
   border: none;
 }
 
-.add-album__submit:hover {
+.add-album__submit:hover,
+.add-song__submit:hover {
   cursor: pointer;
   transform: scale(1.1);
   box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
