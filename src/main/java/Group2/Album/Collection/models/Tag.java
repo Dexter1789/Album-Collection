@@ -1,39 +1,71 @@
 package Group2.Album.Collection.models;
-
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Tag {
-
+	
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String tagName;
+	@Lob
+	private String content;
 
-	public Tag() {
+	@ManyToMany (mappedBy="tags")
+	@JsonIgnore
+	private Collection<Artist> artists;
+	
+	@ManyToMany
+	@JsonIgnore
+	private Collection<Album> albums;
+	
+	@ManyToMany
+	@JsonIgnore
+	private Collection<Song> songs;
+	
+	public Tag() {}
+	
+	public Tag(String content) {
+		this.content = content;
 	}
-
-	public Tag(String tagName) {
-		this.tagName = tagName;
-	}
-
+	
 	public Long getId() {
 		return id;
 	}
-
-	public String getTagName() {
-		return tagName;
+	
+	public String getContent() {
+		return content;
+	}
+	
+	public Collection<Artist> getArtists() {
+		return artists;
+	}
+	
+	public Collection<Album> getAlbums() {
+		return albums;
+	}
+	
+	public Collection<Song> getSongs() {
+		return songs;
 	}
 
+	
+	
 	@Override
 	public String toString() {
-		return "Tag [id=" + id + ", tagName=" + tagName + "]";
+		return "Comment [id=" + id + ", content=" + content + "]";
 	}
+	
+
+	
+
 
 
 }
