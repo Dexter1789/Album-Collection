@@ -167,6 +167,7 @@ footer {
 /*  (5) Artist Page CSS START */
 
 .artist__list {
+  padding-top: 80px;
   color: white;
   flex-wrap: wrap;
   display: flex;
@@ -178,6 +179,8 @@ footer {
   display: flex;
   flex-direction: column;
   margin: 20px;
+  background-color: rgba(0, 0, 15, 0.9);
+  text-align: center;
 }
 
 .artist__container:hover {
@@ -189,6 +192,15 @@ footer {
   -1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
+.artist__container2 {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  margin-top: 40px;
+  background-color: rgba(0, 0, 15, 0.9);
+  text-align: center;
+}
+
 .artist__image {
   height: 200px;
   width: 200px;
@@ -196,8 +208,14 @@ footer {
   overflow: hidden;
 }
 
+.artist__image2 {
+  height: 350px;
+  width: 350px;
+  margin-bottom: -5px;
+  overflow: hidden;
+}
+
 .artist__name {
-  background-color: rgba(0, 0, 15, 0.9);
   height: 100px;
   width: 200px;
   display: flex;
@@ -208,11 +226,33 @@ footer {
   font-size: 30px;
 }
 
+.artist__name2 {
+  height: 60px;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'IM Fell English', serif;
+  font-size: 30px;
+}
+
+.artist__hometown {
+  font-family: 'IM Fell English', serif;
+  font-size: 20px;
+}
+
+.artist__rating {
+  font-family: 'IM Fell English', serif;
+  font-size: 20px;
+  padding: 10px
+}
+
 .add-artist {
   padding-bottom: 120px;
   padding-top: 20px;
-  padding-left: 12.5%;
-  padding-right: 12.5%;
+  padding-left: 20%;
+  padding-right: 20%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -245,3 +285,144 @@ input {
 }
 
 /*  (5) Artist Page CSS END */
+
+/*  (6) Album Page CSS START */
+
+.album__list {
+  color: white;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.album__container {
+  background-color: rgba(0, 0, 15, 0.9);
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  text-align: center;
+
+}
+
+.album__container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
+  -1px -1px 1px rgba(255, 255, 255, 0.5), 
+  1px -1px 1px rgba(255, 255, 255, 0.5), 
+  -1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.album__image {
+  height: 200px;
+  width: 200px;
+  margin-bottom: -5px;
+  overflow: hidden;
+}
+
+.album__name {
+  background-color: rgba(0, 0, 15, 0.9);
+  color: white;
+  height: auto;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+  text-align: center;
+  font-family: 'IM Fell English', serif;
+  font-size: 30px;
+}
+
+.album__rating {
+  color: white;
+  font-family: 'IM Fell English', serif;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.add-comment__box {
+  width: 60%;
+}
+
+.add-comment__singleArtist {
+  font-family: 'IM Fell English', serif;
+  font-weight: 800;
+  font-size: 20px;
+  width: 150px;
+  height: 30px;
+  background-color: rgba(0, 0, 15, 0.9);
+  color: white;
+  border: none;
+}
+
+.add-comment__singleArtist:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
+  -1px -1px 1px rgba(255, 255, 255, 0.5), 
+  1px -1px 1px rgba(255, 255, 255, 0.5), 
+  -1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+
+.comments__container {
+  background-color: rgba(0, 0, 15, 0.9);
+  color: white;
+  padding: 20px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.add-album {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 20%;
+  padding-right: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.add-comments {
+  padding-bottom: 120px;
+  padding-top: 20px;
+  padding-left: 20%;
+  padding-right: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+input {
+  width: 120px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.add-album__submit {
+  font-family: 'IM Fell English', serif;
+  font-weight: 800;
+  font-size: 20px;
+  width: 120px;
+  height: 30px;
+  background-color: rgba(0, 0, 15, 0.9);
+  color: white;
+  border: none;
+}
+
+.add-album__submit:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
+  -1px -1px 1px rgba(255, 255, 255, 0.5), 
+  1px -1px 1px rgba(255, 255, 255, 0.5), 
+  -1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/*  (6) Album Page CSS END */
