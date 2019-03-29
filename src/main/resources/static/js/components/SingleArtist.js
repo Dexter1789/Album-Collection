@@ -33,10 +33,12 @@ export default function SingleArtist(artist) {
         </ul>
     </div>
 
-    <h3>Tags on this Artist</h3>
+    <div class="tags__container">
+    <h3>Tagged with: </h3>
     <ul class="artist-tags">
         <li>${Tags(artist.tags)}</li>
     </ul>
+    </div>
 
 
     <section class="add-album">

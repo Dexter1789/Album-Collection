@@ -366,6 +366,29 @@ input {
   -1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
+.add-tag__box {
+  width: 20%;
+}
+
+.add-tag__singleArtist {
+  font-family: 'IM Fell English', serif;
+  font-weight: 800;
+  font-size: 20px;
+  width: 150px;
+  height: 30px;
+  background-color: rgba(0, 0, 15, 0.9);
+  color: white;
+  border: none;
+}
+
+.add-tag__singleArtist:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 
+  -1px -1px 1px rgba(255, 255, 255, 0.5), 
+  1px -1px 1px rgba(255, 255, 255, 0.5), 
+  -1px 1px 1px rgba(255, 255, 255, 0.5);
+}
 
 .comments__container {
   background-color: rgba(0, 0, 15, 0.9);
@@ -378,9 +401,29 @@ input {
   flex-direction: column;
   justify-content: space-around;
 }
+.tags__container {
+  background-color: rgba(0, 0, 15, 0.9);
+  color: white;
+  padding: 20px;
+  margin-left: 45%;
+  margin-right: 45%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.artist-tags {
+  padding-top: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 
 .add-album {
-  padding-bottom: 20px;
+  padding-bottom: 5px;
   padding-top: 20px;
   padding-left: 20%;
   padding-right: 20%;
@@ -390,6 +433,15 @@ input {
 }
 
 .add-comments {
+  padding-top: 20px;
+  padding-left: 20%;
+  padding-right: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.add-tags {
   padding-bottom: 120px;
   padding-top: 20px;
   padding-left: 20%;
