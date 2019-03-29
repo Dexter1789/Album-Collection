@@ -517,3 +517,66 @@ input {
 }
 
 /*  (6) Album Page CSS END */
+
+/*  (7) Single Song Page CSS Start */
+
+.singlesong__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 120px;
+}
+
+.song {
+  height: 100px;
+  width: 600px;
+  color: white;
+  background-color: rgba(0, 0, 15, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'IM Fell English', serif;
+  margin-bottom: 20px;
+}
+
+.song__title {
+  font-size: 40px;
+  padding-bottom: 10px;
+}
+
+.song__rating {
+  font-size: 15px;
+}
+
+.singlesong__h3 {
+  background-color: rgba(0, 0, 15, 0.9);
+  padding: 15px;
+  font-size: 20px;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.song-comments2 {
+  margin-bottom: 30px;
+  flex-direction: column-reverse;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  padding: 10px;
+  color: rgba(0, 0, 15, 0.9);
+  
+}
+
+.song-tags2 {
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  padding: 10px;
+  color: rgba(0, 0, 15, 0.9);
+}
