@@ -321,7 +321,9 @@ input {
   flex-direction: column;
   margin: 20px;
   text-align: center;
+  padding-top: 20px;
 }
+
 
 
 
@@ -525,13 +527,13 @@ input {
   align-items: center;
   flex-direction: column;
   padding-top: 120px;
+  margin-top: 30px;
 }
 
 .song {
   height: 100px;
   width: 600px;
   color: white;
-  background-color: rgba(0, 0, 15, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -543,10 +545,13 @@ input {
 .song__title {
   font-size: 40px;
   padding-bottom: 10px;
+  padding-top: 20px;
+  background-color: rgba(0, 0, 15, 0.9);
 }
 
 .song__rating {
   font-size: 15px;
+  background-color: rgba(0, 0, 15, 0.9);
 }
 
 .singlesong__h3 {
@@ -564,9 +569,9 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: white;
+  background-color: rgba(0, 0, 15, 0.9);
   padding: 10px;
-  color: rgba(0, 0, 15, 0.9);
+  color: white;
   
 }
 
